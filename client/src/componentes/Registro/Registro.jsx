@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios'
-// import { useHistory } from "react-router-dom";
+import loading from '../../multimedia/load3.gif'
 const Registro = ({ actualizarEstado }) => {
   // const history = useHistory();
   const [registro, setRegistro] = useState({
@@ -9,7 +9,12 @@ const Registro = ({ actualizarEstado }) => {
     phone: '',
   });
 
-  const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({
+    name: 'completar con su nombre',
+    email: 'completar email',
+    phone: 'colocar su numero'
+  });
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleChange = (e) => {
@@ -43,8 +48,10 @@ const Registro = ({ actualizarEstado }) => {
 
     const handleSubmit = (e) => {
       e.preventDefault();
+      validate(registro);
       // Verifica si hay errores en span antes de enviar la solicitud axios
       if (Object.keys(errors).length === 0) {
+        setIsLoading(true);
         axios
           .post('/users', registro)
           .then((res) => {
@@ -67,7 +74,7 @@ const Registro = ({ actualizarEstado }) => {
     <div className="max-w-[1100px] flex items-center justify-center">
       <div className="max-w-[700px] p-6 bg-white rounded-lg shadow-lg">
       <div className="flex justify-center mb-8">
-          <img src="https://www.emprenderconactitud.com/img/POC%20WCS%20(1).png" alt="Logo" className="w-30 h-20" />
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu1u4Z5dGdBVuthyfujnrjnPJQm3Je_nx4Uw&usqp=CAU" alt="Logo" className="w-30 h-20" />
         </div>
       <h3 className="text-2xl mb-4">
           ...Copiando y pegando nuestro sistema que nos genera +170.000 USD /
@@ -92,7 +99,13 @@ const Registro = ({ actualizarEstado }) => {
             <input type="email" id="email" name="email" value={registro.email} onChange={handleChange} className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" required />
             {formSubmitted && errors.email && <span>{errors.email}</span>}
           </div>
-          <button type="submit" onClick={handleSubmit} className="w-32 bg-gradient-to-r from-cyan-400 to-cyan-600 text-white py-2 rounded-lg mx-auto block focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mb-2">Registro</button>
+          <div className="flex items-center justify-center ">
+            {isLoading ? <img src={loading} alt='loading' className="max-w-[76px] max-h-[76px]" /> :
+          <button type="submit" onClick={handleSubmit} 
+          className="w-32 bg-gradient-to-r from-cyan-400 to-cyan-600 text-white py-2 rounded-lg mx-auto block focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mb-2"
+          >Registro</button>
+          }
+          </div>
         </form>
         <div className="text-center">
         </div>
@@ -103,3 +116,5 @@ const Registro = ({ actualizarEstado }) => {
 };
 
 export default Registro;
+
+// className="w-32 bg-gradient-to-r from-cyan-400 to-cyan-600 text-white py-2 rounded-lg mx-auto block focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mb-2"
