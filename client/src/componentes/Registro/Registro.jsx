@@ -46,7 +46,7 @@ const Registro = ({ actualizarEstado }) => {
       // Verifica si hay errores en span antes de enviar la solicitud axios
       if (Object.keys(errors).length === 0) {
         axios
-          .post('http://localhost:3001/users', registro)
+          .post('/users', registro)
           .then((res) => {
             alert(`usuario enviado con éxito`);
             setRegistro({
