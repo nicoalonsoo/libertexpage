@@ -3,6 +3,8 @@ import beer from "../../multimedia/beer.gif";
 import "./Landing.css";
 import Registro from "../../componentes/Registro/Registro";
 import { useHistory } from "react-router-dom";
+import Header from "../../componentes/Header/Header";
+import Footer from "../../componentes/Footer/Footer";
 const Landing = () => {
   const history = useHistory();
   const [showForm, setShowform] = useState(false);
@@ -22,6 +24,7 @@ const Landing = () => {
 
   return (
     <div>
+      <Header />
       <div className="text-center py-8 max-w-[1100px] mx-auto">
         <h3 className="text-1xl font-bold text-red-500 mb-4">
           🚨 SOLO PARA COACHES, INFOPRODUCTORES O AGENCIAS DE MARKETING QUE YA
@@ -83,6 +86,7 @@ const Landing = () => {
           </div>
         </>
       )}
+      <Footer />
     </div>
   );
 };
