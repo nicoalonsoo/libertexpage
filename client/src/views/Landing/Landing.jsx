@@ -31,7 +31,7 @@ const Landing = () => {
         </h3>
         <h3 className="text-2xl mb-4">Nuevo video de 5 minutos revela...</h3>
         <h1 className="text-5xl font-bold mb-4">
-          COMO LOGRAR OBTENER UNA RENTABILIDAD DEL 10 AL 30% MENSUAL HACIENDO
+          COMO LOGRAR OBTENER UNA RENTABILIDAD DEL 10% AL 30% MENSUAL HACIENDO
           COPYTRADING DE LA MANO DE UN EXPERTO
         </h1>
         <h3 className="text-2xl mb-4">

@@ -6,7 +6,7 @@ import 'react-social-icons/facebook'
 import logo from '../../multimedia/log.jpg'
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-8">
+    <footer className="bg-gray-900 text-white py-8">
       <div className="container mx-auto text-center">
         {/* Logo de la empresa */}
         <img

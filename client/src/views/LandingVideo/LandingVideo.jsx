@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./LandingVideo.css";
 import { useHistory } from "react-router-dom";
 import DropboxVideo from '../../componentes/Video/Video'
@@ -9,7 +9,9 @@ const LandingVideo = () => {
   const history = useHistory();
   const [showForm, setShowform] = useState(false);
 
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleClick = () => {
     eventViewContent();

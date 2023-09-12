@@ -81,7 +81,13 @@ const Registro = ({ actualizarEstado }) => {
   return (
     <div className="max-w-[1100px] flex items-center justify-center">
       <div className="max-w-[700px] p-6 bg-white rounded-lg shadow-lg">
-        <button onClick={() => handleClick(false)}>X</button>
+        <button
+          className="bg-gray-500 hover:bg-gray-700 transition duration-300 ease-in-out text-white font-semibold text-sm py-1 px-2 rounded"
+          onClick={() => handleClick(false)}
+          style={{ marginLeft: '500px'}}
+        >
+          X
+        </button>
         <div className="flex justify-center mb-8">
           <img src={logo} alt="Logo" className="w-30 h-20" />
         </div>
@@ -160,7 +166,7 @@ const Registro = ({ actualizarEstado }) => {
         </form>
         <div className="text-center"></div>
         <p className="text-xs text-gray-600 text-center mt-8">
-          &copy; 2023 nombre de la agencia
+          &copy; 2023 Libertex
         </p>
       </div>
     </div>
