@@ -19,7 +19,6 @@ const Landing = () => {
 
   const actualizarEstadoPadre = (estado) => {
     setShowform(estado);
-    history.push("/video");
   };
 
   return (

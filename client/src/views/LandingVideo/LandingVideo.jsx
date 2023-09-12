@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import DropboxVideo from '../../componentes/Video/Video'
 import Header from "../../componentes/Header/Header";
 import Footer from "../../componentes/Footer/Footer";
+import { eventViewContent } from "../../utils/pixelEvents/PixelEvents";
 const LandingVideo = () => {
   const history = useHistory();
   const [showForm, setShowform] = useState(false);
@@ -11,6 +12,7 @@ const LandingVideo = () => {
 
 
   const handleClick = () => {
+    eventViewContent();
     history.push('/');
   };
 
