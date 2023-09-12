@@ -84,23 +84,23 @@ const Registro = ({ actualizarEstado }) => {
         <button
           className="bg-gray-500 hover:bg-gray-700 transition duration-300 ease-in-out text-white font-semibold text-sm py-1 px-2 rounded"
           onClick={() => handleClick(false)}
-          style={{ marginLeft: '500px'}}
+          style={window.innerWidth < "640" ? { marginLeft: '250px'} : { marginLeft: '500px'}}
         >
           X
         </button>
         <div className="flex justify-center mb-2">
           <img src={logo} alt="Logo" className="w-30 h-20" />
         </div>
-        <h3 className="text-2xl mb-2">
+        <h3 className="text-lg md:text-2xl mb-2">
           ...Copiando y pegando nuestro sistema que nos genera +170.000 USD /
           mes con +60% de rentabilidad luego de gastos e impuestos (a la vez que
           delegas tu empresa en un equipo que lo hace todo).
         </h3>
 
-        <h1 className="text-2xl font-semibold text-center text-gray-900 mt-8 mb-4">
+        <h1 className="text-lg md:text-2xl font-semibold text-center text-gray-900 mt-4 mb-2">
           Accede al video
         </h1>
-        <form className="max-w-sm mx-auto">
+        <form className="max-w-[400px] sm:max-w-[700px] mx-auto">
           <div className="mb-2">
             <label htmlFor="name" className="block mb-2 text-sm text-gray-600">
               Nombre y apellido
@@ -157,7 +157,7 @@ const Registro = ({ actualizarEstado }) => {
               <button
                 type="submit"
                 onClick={handleSubmit}
-                className="w-32 bg-gradient-to-r from-cyan-400 to-cyan-600 text-white py-2 rounded-lg mx-auto block focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mb-2"
+                className="w-full sm:w-32 bg-gradient-to-r from-cyan-400 to-cyan-600 text-white py-2 rounded-lg mx-auto block text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mb-2"
               >
                 Registro
               </button>

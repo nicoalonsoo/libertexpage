@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import imgvid from "../../multimedia/imgvid.jpeg";
 import "./Landing.css";
 import Registro from "../../componentes/Registro/Registro";
-import { useHistory } from "react-router-dom";
 import Header from "../../componentes/Header/Header";
 import Footer from "../../componentes/Footer/Footer";
 const Landing = () => {
-  const history = useHistory();
   const [showForm, setShowform] = useState(false);
   const handleImageHover = (e) => {
     e.target.classList.toggle("hovered-image");
@@ -25,16 +23,16 @@ const Landing = () => {
     <div>
       <Header />
       <div className="text-center py-8 max-w-[1100px] mx-auto">
-        <h3 className="text-1xl font-bold text-red-500 mb-4">
+        <h3 className="text-sm md:text-lg font-bold text-red-500 mb-4 mx-2 my-4 md:my-0">
           🚨 SOLO PARA PERSONAS QUE SE ESTÁ INICIANDO EN EL TRADING O QUE YA SE
           INICIARON PERO NO TIENEN BUENOS RESULTADOS. 🚨
         </h3>
-        <h3 className="text-2xl mb-4">Nuevo video de 5 minutos revela...</h3>
-        <h1 className="text-5xl font-bold mb-4">
+        <h3 className="text-lg md:text-2xl mb-4 font-bold mx-2 my-4 md:my-0">Nuevo video de 5 minutos revela...</h3>
+        <h1 className="text-3xl md:text-5xl font-bold mb-4">
           COMO LOGRAR OBTENER UNA RENTABILIDAD DEL 10% AL 30% MENSUAL HACIENDO
           COPYTRADING DE LA MANO DE UN EXPERTO
         </h1>
-        <h3 className="text-2xl mb-4">
+        <h3 className="text-lg md:text-2xl mb-4 mx-2 my-4 md:my-0">
           copiando y pegando nuestra estrategia que nos viene generando en
           promedio un 29% mensual en los últimos dos años. Vas a poder ingresar
           100% GRATIS cumpliendo dos requisitos.
@@ -50,7 +48,7 @@ const Landing = () => {
           />
         </div>
         <button
-          className="ov-btn-slide-left max-w-[700px] text-white text-2xl py-4 px-6 rounded-lg mb-4"
+          className="ov-btn-slide-left max-w-[700px] text-white text-2xl py-4 px-6 rounded-lg mb-4 mx-2 my-4 md:my-0"
           onClick={() => handleClick(true)}
         >
           QUIERO VER ESTE BREVE VIDEO
@@ -59,11 +57,11 @@ const Landing = () => {
             INICIARON PERO NO TIENEN BUENOS RESULTADOS.)
           </p>
         </button>
-        <h3 className="text-1xl font-bold text-red-500 mb-4">
+        <h3 className="text-sm md:text-lg font-bold text-red-500 mb-4 mx-2 my-4 md:my-0">
           *Si no tienes mínimo $100 dólares para depositar en tu cuenta de
           trading no te registres poruqe esto no va funcionar para ti.
         </h3>
-        <h3 className="text-1xl font-bold text-red-500 mb-4">
+        <h3 className="text-sm md:text-lg font-bold text-red-500 mb-4 mx-2 my-4 md:my-0">
           *No somos una empresa multinivel, ni un fondo de inversión. Somos una
           academia de trading partner oficial del broker Libertex.
         </h3>
