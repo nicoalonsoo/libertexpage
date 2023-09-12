@@ -27,7 +27,7 @@ const LandingVideo = () => {
           <DropboxVideo />
     </div>
     <h1 className="text-5xl font-bold mb-4">
-          Paso 2: REGISTRATE EN NUESTRA ACADEMIA
+          PASO 2: REGISTRATE EN NUESTRA ACADEMIA
         </h1>
 
         <h3 className="text-1xl font-bold text-red-500 mb-4">
