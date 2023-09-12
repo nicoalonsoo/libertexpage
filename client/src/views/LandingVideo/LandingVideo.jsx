@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import beer from "../../multimedia/beer.gif";
 import "./LandingVideo.css";
 import { useHistory } from "react-router-dom";
+import DropboxVideo from '../../componentes/Video/Video'
+import Header from "../../componentes/Header/Header";
+import Footer from "../../componentes/Footer/Footer";
 const LandingVideo = () => {
   const history = useHistory();
   const [showForm, setShowform] = useState(false);
-  const handleImageHover = (e) => {
-    e.target.classList.toggle("hovered-image");
-    e.target.style.cursor = "pointer";
-  };
+
+
 
   const handleClick = () => {
     history.push('/');
@@ -16,50 +16,39 @@ const LandingVideo = () => {
 
   return (
     <div>
+      <Header />
       <div className="text-center py-8 max-w-[1100px] mx-auto">
-        <h3 className="text-1xl font-bold text-red-500 mb-4">
-          🚨 VIDEOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 🚨
-        </h3>
-        <h3 className="text-2xl mb-4">
-          Nuevo vídeo de alrededor de 6 minutos revela...
-        </h3>
+      <h3 className="text-2xl mb-4 font-bold">COMO CRECER a 100.000 USD AL MES TU NEGOCIO DE COACHING, INFOPRODUCTOS O AGENCIA</h3>
         <h1 className="text-5xl font-bold mb-4">
-          ESTE ES EL VIDEO MEN
+          PASO 1: MIRA EL VIDEO
         </h1>
-        <h3 className="text-2xl mb-4">
-          ...Copiando y pegando nuestro sistema que nos genera +170.000 USD /
-          mes con +60% de rentabilidad luego de gastos e impuestos (a la vez que
-          delegas tu empresa en un equipo que lo hace todo).
-        </h3>
         <div className="mx-auto max-w-[700px] mb-8 mt-8">
-          <img
-            src={beer}
-            alt="hombre"
-            className="transition-transform duration-300 ease-in-out transform scale-100 hover:scale-110"
-            onMouseEnter={handleImageHover}
-            onMouseLeave={handleImageHover}
-            onClick={() => handleClick()}
-          />
-        </div>
+          <DropboxVideo />
+    </div>
+    <h1 className="text-5xl font-bold mb-4">
+          Paso 2: REGISTRATE EN NUESTRA ACADEMIA
+        </h1>
+
+        <h3 className="text-1xl font-bold text-red-500 mb-4">
+        *Si ya tienes cuenta en Libertex puedes registrarte con el mismo nombre y número de teléfono pero distinto email.
+        </h3>
+        <h3 className="text-1xl font-bold text-red-500 mb-4">
+        *Solamente regístrate si tienes más de $100 dólares para depositar en tu cuenta de trading
+        </h3>
+        <h3 className="text-1xl font-bold text-red-500 mb-4">
+        *No somos una empresa multinivel ni un fondo de inversión, somos una academia de trading asociada al broker Libertex.
+        </h3>
         <button
           className="ov-btn-slide-left max-w-[700px] text-white text-2xl py-4 px-6 rounded-lg mb-4"
           onClick={() => handleClick(true)}
         >
-          QUIERO VER ESTE VIDEO
+          REGISTRARSE
           <p className="text-sm">
-            SOLO PARA COACHES, INFOPRODUCTORES O AGENCIAS DE MARKETING
+          (sólo para personas que quieren iniciarse en el trading o que ya se iniciaron pero no tienen buenos resultados).
           </p>
         </button>
-        <h3 className="text-1xl font-bold text-red-500 mb-4">
-          *Si NO tienes un negocio de coaching, infoproductos o servicios de
-          marketing, que YA TENGA CLIENTES, no te registres porque esto no va a
-          funcionar para ti.
-        </h3>
-        <h3 className="text-1xl font-bold text-red-500 mb-4">
-          *NO ayudamos a multiniveles, negocios físicos, afiliados, ecommerce,
-          principiantes sin clientes y demás.
-        </h3>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -1,10 +1,8 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-
+import logo from '../../multimedia/log.jpg'
 const navigation = [
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
 ]
 
 function classNames(...classes) {
@@ -33,8 +31,8 @@ export default function Header() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <img
-                    className="h-10 w-auto"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu1u4Z5dGdBVuthyfujnrjnPJQm3Je_nx4Uw&usqp=CAU"
+                    className="h-12 w-auto"
+                    src={logo}
                     alt="Your Company"
                   />
                 </div>

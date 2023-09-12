@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import beer from "../../multimedia/beer.gif";
+import imgvid from "../../multimedia/imgvid.jpeg";
 import "./Landing.css";
 import Registro from "../../componentes/Registro/Registro";
 import { useHistory } from "react-router-dom";
@@ -19,7 +19,7 @@ const Landing = () => {
 
   const actualizarEstadoPadre = (estado) => {
     setShowform(estado);
-    history.push('/video');
+    history.push("/video");
   };
 
   return (
@@ -27,24 +27,22 @@ const Landing = () => {
       <Header />
       <div className="text-center py-8 max-w-[1100px] mx-auto">
         <h3 className="text-1xl font-bold text-red-500 mb-4">
-          🚨 SOLO PARA COACHES, INFOPRODUCTORES O AGENCIAS DE MARKETING QUE YA
-          TIENEN CLIENTES. 🚨
+          🚨 SOLO PARA PERSONAS QUE SE ESTÁ INICIANDO EN EL TRADING O QUE YA SE
+          INICIARON PERO NO TIENEN BUENOS RESULTADOS. 🚨
         </h3>
-        <h3 className="text-2xl mb-4">
-          Nuevo vídeo de alrededor de 6 minutos revela...
-        </h3>
+        <h3 className="text-2xl mb-4">Nuevo video de 5 minutos revela...</h3>
         <h1 className="text-5xl font-bold mb-4">
-          COMO CRECER A 10K, 20K O INCLUSO 50K USD AL MES TU NEGOCIO DE
-          COACHING, INFOPRODUCTOS O AGENCIA...
+          COMO LOGRAR OBTENER UNA RENTABILIDAD DEL 10 AL 30% MENSUAL HACIENDO
+          COPYTRADING DE LA MANO DE UN EXPERTO
         </h1>
         <h3 className="text-2xl mb-4">
-          ...Copiando y pegando nuestro sistema que nos genera +170.000 USD /
-          mes con +60% de rentabilidad luego de gastos e impuestos (a la vez que
-          delegas tu empresa en un equipo que lo hace todo).
+          copiando y pegando nuestra estrategia que nos viene generando en
+          promedio un 29% mensual en los últimos dos años. Vas a poder ingresar
+          100% GRATIS cumpliendo dos requisitos.
         </h3>
         <div className="mx-auto max-w-[700px] mb-8 mt-8">
           <img
-            src={beer}
+            src={imgvid}
             alt="hombre"
             className="transition-transform duration-300 ease-in-out transform scale-100 hover:scale-110"
             onMouseEnter={handleImageHover}
@@ -56,19 +54,19 @@ const Landing = () => {
           className="ov-btn-slide-left max-w-[700px] text-white text-2xl py-4 px-6 rounded-lg mb-4"
           onClick={() => handleClick(true)}
         >
-          QUIERO VER ESTE VIDEO
+          QUIERO VER ESTE BREVE VIDEO
           <p className="text-sm">
-            SOLO PARA COACHES, INFOPRODUCTORES O AGENCIAS DE MARKETING
+            (SOLO PARA PERSONAS QUE SE ESTÁ INICIANDO EN EL TRADING O QUE YA SE
+            INICIARON PERO NO TIENEN BUENOS RESULTADOS.)
           </p>
         </button>
         <h3 className="text-1xl font-bold text-red-500 mb-4">
-          *Si NO tienes un negocio de coaching, infoproductos o servicios de
-          marketing, que YA TENGA CLIENTES, no te registres porque esto no va a
-          funcionar para ti.
+          *Si no tienes mínimo $100 dólares para depositar en tu cuenta de
+          trading no te registres poruqe esto no va funcionar para ti.
         </h3>
         <h3 className="text-1xl font-bold text-red-500 mb-4">
-          *NO ayudamos a multiniveles, negocios físicos, afiliados, ecommerce,
-          principiantes sin clientes y demás.
+          *No somos una empresa multinivel, ni un fondo de inversión. Somos una
+          academia de trading partner oficial del broker Libertex.
         </h3>
       </div>
       {showForm && (
@@ -79,9 +77,7 @@ const Landing = () => {
           ></div>
           <div className="fixed inset-0 flex items-center justify-center z-50">
             <div className="bg-white p-4 rounded-lg shadow-lg">
-              <Registro 
-              actualizarEstado={actualizarEstadoPadre}
-              />
+              <Registro actualizarEstado={actualizarEstadoPadre} />
             </div>
           </div>
         </>

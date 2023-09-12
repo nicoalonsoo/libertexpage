@@ -3,13 +3,14 @@ import { SocialIcon } from 'react-social-icons/component'
 import 'react-social-icons/instagram'
 import 'react-social-icons/linkedin'
 import 'react-social-icons/facebook'
+import logo from '../../multimedia/log.jpg'
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white py-8">
       <div className="container mx-auto text-center">
         {/* Logo de la empresa */}
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu1u4Z5dGdBVuthyfujnrjnPJQm3Je_nx4Uw&usqp=CAU"
+          src={logo}
           alt="Logo de la empresa"
           className="mx-auto mb-4"
           style={{ maxWidth: '150px' }} // Ajusta el tamaño según tus necesidades
@@ -29,7 +30,7 @@ const Footer = () => {
         </div>
 
         {/* Texto de derechos reservados */}
-        <p className="text-sm">&copy; {new Date().getFullYear()} DoctorSales. Todos los derechos reservados.</p>
+        <p className="text-sm">&copy; {new Date().getFullYear()} Libertex. Todos los derechos reservados.</p>
       </div>
     </footer>
   );

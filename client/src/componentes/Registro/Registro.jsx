@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios'
 import loading from '../../multimedia/load3.gif'
+import logo from '../../multimedia/log.jpg'
 const Registro = ({ actualizarEstado }) => {
   // const history = useHistory();
   const [registro, setRegistro] = useState({
@@ -74,7 +75,7 @@ const Registro = ({ actualizarEstado }) => {
     <div className="max-w-[1100px] flex items-center justify-center">
       <div className="max-w-[700px] p-6 bg-white rounded-lg shadow-lg">
       <div className="flex justify-center mb-8">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu1u4Z5dGdBVuthyfujnrjnPJQm3Je_nx4Uw&usqp=CAU" alt="Logo" className="w-30 h-20" />
+          <img src={logo} alt="Logo" className="w-30 h-20" />
         </div>
       <h3 className="text-2xl mb-4">
           ...Copiando y pegando nuestro sistema que nos genera +170.000 USD /
