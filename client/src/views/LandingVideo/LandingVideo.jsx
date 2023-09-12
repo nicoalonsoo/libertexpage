@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./LandingVideo.css";
 import { useHistory } from "react-router-dom";
 import DropboxVideo from '../../componentes/Video/Video'
@@ -6,8 +6,6 @@ import Header from "../../componentes/Header/Header";
 import Footer from "../../componentes/Footer/Footer";
 import { eventViewContent } from "../../utils/pixelEvents/PixelEvents";
 const LandingVideo = () => {
-  const history = useHistory();
-  const [showForm, setShowform] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -15,7 +13,6 @@ const LandingVideo = () => {
 
   const handleClick = () => {
     eventViewContent();
-    history.push('/');
   };
 
   return (
@@ -42,15 +39,17 @@ const LandingVideo = () => {
         <h3 className="text-1xl font-bold text-red-500 mb-4">
         *No somos una empresa multinivel ni un fondo de inversión, somos una academia de trading asociada al broker Libertex.
         </h3>
+        <a href="https://go.libertex-affiliates.com/visit/?bta=55770&nci=17906" target="_blank" rel="noopener noreferrer">
         <button
           className="ov-btn-slide-left max-w-[700px] text-white text-2xl py-4 px-6 rounded-lg mb-4"
-          onClick={() => handleClick(true)}
+          onClick={() => handleClick()}
         >
           REGISTRARSE
           <p className="text-sm">
           (sólo para personas que quieren iniciarse en el trading o que ya se iniciaron pero no tienen buenos resultados).
           </p>
         </button>
+        </a>
       </div>
       <Footer />
     </div>
