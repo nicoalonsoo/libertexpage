@@ -60,7 +60,7 @@ const Registro = ({ actualizarEstado }) => {
       axios
         .post("/users", registro)
         .then((res) => {
-          alert(`usuario enviado con éxito`);
+          // alert(`usuario enviado con éxito`);
           setRegistro({
             name: "",
             email: "",
