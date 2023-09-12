@@ -4,14 +4,32 @@ import loading from "../../multimedia/load3.gif";
 import logo from "../../multimedia/log.jpg";
 import { eventLead } from "../../utils/pixelEvents/PixelEvents";
 import { useHistory } from "react-router-dom";
+import Select from "react-select";
 const Registro = ({ actualizarEstado }) => {
   const history = useHistory();
   const [registro, setRegistro] = useState({
     name: "",
     email: "",
     phone: "",
+    countryCode: null,
   });
-
+  const countries = [
+    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
+    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
+    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
+    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
+    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
+    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
+    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
+    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
+    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
+    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
+    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
+    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
+    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
+    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
+    // Agrega más países según tus necesidades
+  ];
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({
     name: "completar con su nombre",
@@ -53,7 +71,6 @@ const Registro = ({ actualizarEstado }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     validate(registro);
-    // Verifica si hay errores en span antes de enviar la solicitud axios
     if (Object.keys(errors).length === 0) {
       eventLead(registro.email, registro.name);
       setIsLoading(true);
@@ -78,28 +95,46 @@ const Registro = ({ actualizarEstado }) => {
   const handleClick = (click) => {
     actualizarEstado(click);
   };
+
+  const handleCountryChange = (selectedOption) => {
+    setRegistro({
+      ...registro,
+      countryCode: selectedOption,
+    });
+  };
+
   return (
     <div className="max-w-[1100px] flex items-center justify-center">
-      <div className="max-w-[700px] p-6 bg-white rounded-lg shadow-lg overflow-auto max-h-[700px]">
+      <div className="max-w-[700px] p-4 bg-white rounded-lg shadow-lg overflow-auto max-h-[700px] relative">
         <button
-          className="bg-gray-500 hover:bg-gray-700 transition duration-300 ease-in-out text-white font-semibold text-sm py-1 px-2 rounded"
+          className="bg-gray-500 hover:bg-gray-700 transition duration-300 ease-in-out text-white font-semibold text-sm py-1 px-2 rounded absolute top-0 right-0 mt-2 mr-2"
           onClick={() => handleClick(false)}
-          style={window.innerWidth < "640" ? { marginLeft: '250px'} : { marginLeft: '500px'}}
+          // style={{ marginLeft: "250px" }}
         >
           X
         </button>
         <div className="flex justify-center mb-2">
-          <img src={logo} alt="Logo" className="w-30 h-20" />
+          <img src={logo} alt="Logo" className="w-30 h-20 p-0" />
         </div>
-        <h3 className="text-lg md:text-2xl mb-2">
-          ...Copiando y pegando nuestro sistema que nos genera +170.000 USD /
-          mes con +60% de rentabilidad luego de gastos e impuestos (a la vez que
-          delegas tu empresa en un equipo que lo hace todo).
+        <h1 className="text-lg md:text-2xl font-semibold text-center text-gray-900 mt-4 mb-2">
+          INGRESA TUS DATOS PARA RECIBIR ACCESO + MATERIAL EXTRA PERSONALIZADO.
+        </h1>
+        <h3
+          className="text-sm md:text-lg font-bold text-red-500 mb-2 mt-0 mx-4 md:my-0 text-left"
+          style={{ marginBottom: "1rem" }}
+        >
+          *Utilizaremos estos datis para ponernos en contacto y regalarte
+          material de entrenamiento extra en base tus necesidades específicas de
+          trading.
+        </h3>
+        <h3
+          className="text-sm md:text-lg font-bold text-red-500 mb-2 mt-0 mx-4 md:my-0 text-left"
+          style={{ marginBottom: "1rem" }}
+        >
+          *SÓLO regístrate si tienes más de $100 dólares para depositar en tu
+          cuenta personal de trading y estás dispuesto a crecer.
         </h3>
 
-        <h1 className="text-lg md:text-2xl font-semibold text-center text-gray-900 mt-4 mb-2">
-          Accede al video
-        </h1>
         <form className="max-w-[400px] sm:max-w-[700px] mx-auto">
           <div className="mb-2">
             <label htmlFor="name" className="block mb-2 text-sm text-gray-600">
@@ -114,12 +149,19 @@ const Registro = ({ actualizarEstado }) => {
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
               required
             />
-            {formSubmitted && errors.name && <span className="text-red-500">{errors.name}</span>}
+            {formSubmitted && errors.name && (
+              <span className="text-red-500">{errors.name}</span>
+            )}
           </div>
-          <div className="mb-2">
-            <label htmlFor="phone" className="block mb-2 text-sm text-gray-600">
-              phone
-            </label>
+          <div className="flex">
+            <Select
+              id="countryCode"
+              name="countryCode"
+              options={countries}
+              value={registro.countryCode}
+              onChange={handleCountryChange}
+              className="w-1/3 px-4 py-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+            />
             <input
               type="text"
               id="phone"
@@ -129,7 +171,9 @@ const Registro = ({ actualizarEstado }) => {
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
               required
             />
-            {formSubmitted && errors.phone && <span className="text-red-500">{errors.phone}</span>}
+            {formSubmitted && errors.phone && (
+              <span className="text-red-500">{errors.phone}</span>
+            )}
           </div>
           <div className="mb-2">
             <label htmlFor="email" className="block mb-2 text-sm text-gray-600">
@@ -144,7 +188,9 @@ const Registro = ({ actualizarEstado }) => {
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
               required
             />
-            {formSubmitted && errors.email && <span className="text-red-500">{errors.email}</span>}
+            {formSubmitted && errors.email && (
+              <span className="text-red-500">{errors.email}</span>
+            )}
           </div>
           <div className="flex items-center justify-center ">
             {isLoading ? (

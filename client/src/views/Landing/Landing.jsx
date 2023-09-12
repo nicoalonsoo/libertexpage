@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import imgvid from "../../multimedia/imgvid.jpeg";
+import gif from "../../multimedia/gif.gif";
 import "./Landing.css";
 import Registro from "../../componentes/Registro/Registro";
 import Header from "../../componentes/Header/Header";
@@ -22,44 +22,49 @@ const Landing = () => {
   return (
     <div>
       <Header />
-      <div className="text-center py-8 max-w-[1100px] mx-auto">
-        <h3 className="text-sm md:text-lg font-bold text-red-500 mb-4 mx-2 my-4 md:my-0">
-          🚨 SOLO PARA PERSONAS QUE SE ESTÁ INICIANDO EN EL TRADING O QUE YA SE
+      <div className="text-center py-6 max-w-[1223px] mx-auto">
+        <h3 className="text-sm md:text-lg font-bold text-red-500 mb-2 mt-0 mx-4 md:my-0">
+          🚨 SOLO PARA PERSONAS QUE SE ESTÁN INICIANDO EN EL TRADING O QUE YA SE
           INICIARON PERO NO TIENEN BUENOS RESULTADOS. 🚨
         </h3>
-        <h3 className="text-lg md:text-2xl mb-4 font-bold mx-2 my-4 md:my-0">Nuevo video de 5 minutos revela...</h3>
-        <h1 className="text-3xl md:text-5xl font-bold mb-4">
-          COMO LOGRAR OBTENER UNA RENTABILIDAD DEL 10% AL 30% MENSUAL HACIENDO
-          COPYTRADING DE LA MANO DE UN EXPERTO
+        <h3 className="text-lg md:text-2xl font-bold mx-6 my-2 md:my-0 md:mx-0">
+          Nuevo video de 5 minutos revela...
+        </h3>
+        <h1 className="text-2xl md:text-5xl font-extrabold mb-2 mx-4 md:mx-0">
+          COMO LOGRAR OBTENER UNA RENTABILIDAD DEL{" "}
+          <span className="underline">10%</span> AL{" "}
+          <span className="underline">30%</span> MENSUAL HACIENDO COPYTRADING DE
+          LA MANO DE UN EXPERTO
         </h1>
-        <h3 className="text-lg md:text-2xl mb-4 mx-2 my-4 md:my-0">
+        <h3 className="text-lg md:text-2xl mb-2 mx-6 my-2 md:my-0 md:mx-0">
           copiando y pegando nuestra estrategia que nos viene generando en
           promedio un 29% mensual en los últimos dos años. Vas a poder ingresar
           100% GRATIS cumpliendo dos requisitos.
         </h3>
-        <div className="mx-auto max-w-[700px] mb-8 mt-8">
+        <div className="mx-auto max-w-[700px] p-2 sm:p-4 mb-2 mt-2">
           <img
-            src={imgvid}
-            alt="hombre"
-            className="transition-transform duration-300 ease-in-out transform scale-100 hover:scale-110"
+            src={gif}
+            alt="gif"
+            className="mr-2 sm:mr-0 transition-transform duration-300 ease-in-out transform scale-100 hover:scale-110 "
             onMouseEnter={handleImageHover}
             onMouseLeave={handleImageHover}
             onClick={() => handleClick(true)}
           />
         </div>
         <button
-          className="ov-btn-slide-left max-w-[700px] text-white text-2xl py-4 px-6 rounded-lg mb-4 mx-2 my-4 md:my-0"
+          className="ov-btn-slide-left max-w-[700px] text-white text-2xl py-4 px-6 rounded-lg mb-4 mx-2 my-2 md:my-2"
           onClick={() => handleClick(true)}
+          style={{marginBottom: '3rem'}}
         >
           QUIERO VER ESTE BREVE VIDEO
           <p className="text-sm">
-            (SOLO PARA PERSONAS QUE SE ESTÁ INICIANDO EN EL TRADING O QUE YA SE
+            (SOLO PARA PERSONAS QUE SE ESTÁN INICIANDO EN EL TRADING O QUE YA SE
             INICIARON PERO NO TIENEN BUENOS RESULTADOS.)
           </p>
         </button>
         <h3 className="text-sm md:text-lg font-bold text-red-500 mb-4 mx-2 my-4 md:my-0">
           *Si no tienes mínimo $100 dólares para depositar en tu cuenta de
-          trading no te registres poruqe esto no va funcionar para ti.
+          trading no te registres porque esto no va funcionar para ti.
         </h3>
         <h3 className="text-sm md:text-lg font-bold text-red-500 mb-4 mx-2 my-4 md:my-0">
           *No somos una empresa multinivel, ni un fondo de inversión. Somos una

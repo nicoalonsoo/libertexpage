@@ -1,6 +1,6 @@
 /* Estilos para el botón Slide Left */
 .ov-btn-slide-left {
-    background: #1b630e;
+    background: #ce8011;
     color: #ffffff;
     /* border: 2px solid #1b630e; */
     padding: 16px 20px;
@@ -18,7 +18,7 @@
   
   .ov-btn-slide-left::after {
     content: "";
-    background: #4741d7;
+    background: #000000;
     position: absolute;
     z-index: -1;
     padding: 16px 20px;

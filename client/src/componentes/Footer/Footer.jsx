@@ -1,8 +1,8 @@
 import React from 'react';
-import { SocialIcon } from 'react-social-icons/component'
-import 'react-social-icons/instagram'
-import 'react-social-icons/linkedin'
-import 'react-social-icons/facebook'
+// import { SocialIcon } from 'react-social-icons/component'
+// import 'react-social-icons/instagram'
+// import 'react-social-icons/linkedin'
+// import 'react-social-icons/facebook'
 import logo from '../../multimedia/log.jpg'
 const Footer = () => {
   return (
@@ -17,7 +17,7 @@ const Footer = () => {
         />
 
         {/* Enlaces a redes sociales y correo */}
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <a href="https://www.instagram.com/tu_instagram" className="text-white mr-4 hover:text-blue-500">
           <SocialIcon url="www.instagram.com" />
           </a>
@@ -27,7 +27,7 @@ const Footer = () => {
           <a href="mailto:tucorreo@gmail.com" className="text-white hover:text-blue-500">
           <SocialIcon url="www.facebook.com" />
           </a>
-        </div>
+        </div> */}
 
         {/* Texto de derechos reservados */}
         <p className="text-sm">&copy; {new Date().getFullYear()} Libertex. Todos los derechos reservados.</p>
