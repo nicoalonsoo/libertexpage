@@ -27,7 +27,12 @@ const Landing = () => {
   const actualizarEstadoPadre = (estado) => {
     setShowform(estado);
   };
-  const modifiedCountries = countries.filter(country => country.code);
+  const modifiedCountries = countries.filter(country => country.continent === 'South America' || country.continent === 'North America');
+
+  const filteredCountryNames = ['British Virgin Islands', 'Canada', 'Venezuela', 'Cayman Islands', 'Caribbean Netherlands', 'Saint Vincent and the Grenadines', 'United States Virgin Islands', 'United States', 'French Guiana', 'Turks and Caicos Islands', 'Brazil', 'Falkland Islands', 'Sint Maarten', 'Belize', 'Montserrat', 'Suriname', 'Greenland', 'Jamaica', 'Guyana', 'Saint Barthélemy', 'Saint Pierre and Miquelon', 'Martinique', 'Guadeloupe', 'Saint Kitts and Nevis', 'Saint Martin', 'Anguilla', 'Saint Lucia', 'Curaçao', 'Dominican Republic', 'Trinidad and Tobago', 'Antigua and Barbuda'];
+
+  const filterCountries = modifiedCountries.filter(country => !filteredCountryNames.includes(country.name));
+
   return (
     <div>
       <Header />
@@ -46,7 +51,7 @@ const Landing = () => {
           LA MANO DE UN EXPERTO
         </h1>
         <h3 className="text-lg md:text-2xl mb-2 mx-6 my-2 md:my-0 md:mx-0">
-          copiando y pegando nuestra estrategia que nos viene generando en
+          Copiando y pegando nuestra estrategia que nos viene generando en
           promedio un 29% mensual en los últimos dos años. Vas a poder ingresar
           100% GRATIS cumpliendo dos requisitos.
         </h3>
@@ -88,7 +93,7 @@ const Landing = () => {
           ></div>
           <div className="fixed inset-0 flex items-center justify-center z-50">
             <div className="bg-white p-4 rounded-lg shadow-lg">
-              <Registro actualizarEstado={actualizarEstadoPadre} countries={modifiedCountries}/>
+              <Registro actualizarEstado={actualizarEstadoPadre} countries={filterCountries}/>
             </div>
           </div>
         </>

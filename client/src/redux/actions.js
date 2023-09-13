@@ -23,9 +23,10 @@ export const getUsers = (page) => {
         code: country.idd.root,
         suf: country.idd.suffixes,
         name: country.name.common,
-        flag: country.flags.svg
+        flag: country.flags.svg,
+        continent: country.continents[0]
       }));
-      console.log(response.data);
+      console.log(data);
       dispatch({ type: GET_COUNTRIES, payload: data });
     } catch (error) {
       console.error(error);

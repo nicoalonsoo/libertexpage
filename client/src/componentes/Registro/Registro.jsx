@@ -13,15 +13,13 @@ const Registro = ({ actualizarEstado, countries }) => {
     phone: "",
     countryCode: null,
   });
-//   const [country, setCountry] = useState({
-// countries
-//   });
-  
+
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({
     name: "completar con su nombre",
     email: "completar email",
     phone: "colocar su numero",
+    countryCode: "colocar Country Code",
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -32,6 +30,14 @@ const Registro = ({ actualizarEstado, countries }) => {
       [name]: value,
     }));
     validate({ ...registro, [name]: value });
+  };
+  const handleCountryChange = (e) => {
+    const code = e.target.value;
+    setRegistro({
+      ...registro,
+      countryCode: code,
+    });
+    validate({ ...registro, countryCode: code });
   };
 
   const validate = (registro) => {
@@ -51,6 +57,13 @@ const Registro = ({ actualizarEstado, countries }) => {
     }
     if (!registro.phone) {
       errors.phone = "Debe ingresar su numero de celular.";
+    }
+    if (!registro.countryCode) {
+      errors.phone = "Debe ingresar el código de su pais.";
+    }
+    if (!registro.countryCode && !registro.phone) {
+      errors.phone =
+        "Debe ingresar el código de su pais y su numero de celular.";
     }
     setErrors(errors);
   };
@@ -83,13 +96,7 @@ const Registro = ({ actualizarEstado, countries }) => {
     actualizarEstado(click);
   };
 
-  const handleCountryChange = (selectedOption) => {
-    setRegistro({
-      ...registro,
-      countryCode: selectedOption,
-    });
-  };
-
+  const selectedCountry = countries.find((country) => country.code === registro.countryCode);
 
   return (
     <div className="max-w-[1100px] flex items-center justify-center">
@@ -124,9 +131,7 @@ const Registro = ({ actualizarEstado, countries }) => {
         </h3>
 
         <form className="max-w-[400px] sm:max-w-[700px] mx-auto">
-          <div className="mb-2"
-          style={{ marginBotton: "4rem" }}
-          >
+          <div className="mb-2">
             <label htmlFor="name" className="block mb-2 text-sm text-gray-600">
               Nombre y apellido
             </label>
@@ -144,38 +149,64 @@ const Registro = ({ actualizarEstado, countries }) => {
             )}
           </div>
           <div>
-          <label htmlFor="phone" className="block mb-2 text-sm text-gray-600">
+            <label htmlFor="phone" className="block mb-2 text-sm text-gray-600">
               Numero de telefono
             </label>
-          <div className="flex">
-          <select onChange={handleCountryChange}
-              className="w-1/3 px-4 py-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
-                {countries.map((country) => <option value={country.code}>
-                <img src={country.flag} alt={country.name} className="w-6 h-4" />{country.code} {country.name}
-                  </option>
-                )}
-            </select>  
-            {/* <Select
-              id="countryCode"
-              name="countryCode"
-              options={countries.map((country) => country.name)}
-              value={registro.countryCode}
-              onChange={handleCountryChange}
-              className="w-1/3 px-4 py-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
-            /> */}
-            <input
-              type="text"
-              id="phone"
-              name="phone"
-              value={registro.phone}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
-              required
-            />
+            <div className="flex">
+              <Select
+                options={countries.map((country) => ({
+                  value: country.code,
+                  label: (
+                    <div className="flex items-center">
+                      <img
+                        src={country.flag}
+                        alt={country.name}
+                        className="w-6 h-4"
+                      />
+                      <span>
+                        {country.name} ({country.code})
+                      </span>
+                    </div>
+                  ),
+                }))}
+                placeholder="Código de Área"
+                value={selectedCountry ? {
+                  value: registro.countryCode,
+                  label: (
+                    <div className="flex items-center">
+                      <img
+                        src={selectedCountry.flag}
+                        alt={selectedCountry.name}
+                        className="w-6 h-4"
+                      />
+                      <span>
+                        {`${selectedCountry.name} (${registro.countryCode})`}
+                      </span>
+                    </div>
+                  ),
+                } : registro.countryCode}
+                onChange={(selectedOption) => {
+                  setRegistro({
+                    ...registro,
+                    countryCode: selectedOption.value,
+                  });
+                  validate({ ...registro, countryCode: selectedOption.value });
+                }}
+                className="w-2/3 px-4 py-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+              />
+              <input
+                type="text"
+                id="phone"
+                name="phone"
+                value={registro.phone}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                required
+              />
+            </div>
             {formSubmitted && errors.phone && (
               <span className="text-red-500">{errors.phone}</span>
             )}
-          </div>
           </div>
           <div className="mb-2">
             <label htmlFor="email" className="block mb-2 text-sm text-gray-600">
