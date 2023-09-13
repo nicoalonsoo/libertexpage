@@ -4,7 +4,7 @@ import Landing from './views/Landing/Landing';
 import UserTable from './views/UserTable/UserTable';
 import LandingVideo from './views/LandingVideo/LandingVideo';
 import './App.css';
-axios.defaults.baseURL = 'https://libertextradingclub.vercel.app/';
+axios.defaults.baseURL = 'https://back-libertex.onrender.com';
 function App() {
   return (
     <div className="App">

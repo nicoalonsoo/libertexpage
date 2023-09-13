@@ -7,12 +7,12 @@ const emailTemplate = `
   <title>Correo Electrónico</title>
   <style>
     body {
-      font-size: 16px;
+      font-size: 19px;
       /* Establece el tamaño de fuente predeterminado para el cuerpo del correo */
     }
 
     p {
-      font-size: 25px;
+      font-size: 19px;
       /* Establece el tamaño de fuente para las etiquetas <p> */
     }
             ul {
@@ -42,16 +42,16 @@ const emailTemplate = `
 </head>
 
 <body>
-  <h1>HOLA %NOMBRE% ¿Quieres crecer tu facturación? Entonces sigue leyendo</h1>
+  <h2>HOLA %NOMBRE% ¿Quieres crecer tu facturación? Entonces sigue leyendo</h1>
   <p>Instalaremos nuestro sistema de marketing y ventas en tu negocio para captar clientes en escala de forma predecible y rentable.</p>
   <p>(Que nos genera +170.000 USD al mes con +60% de rentabilidad en promedio).</p>
   <p>Y si no generas hasta 50.000 USD / mes extras en menos de 6 meses…</p>
   <p>…TE DEVOLVEMOS TU DINERO Y PAGAMOS 2.000 USD.</p>
   <p>Sigue leyendo y te contaré.</p>
-  <h2>1. Cómo funciona.</h2>
-  <h2>2. Prueba de que funciona.</h2>
+  <h3>1. Cómo funciona.</h3>
+  <h3>2. Prueba de que funciona.</h3>
   <!-- Cómo funciona -->
-  <h2>Cómo funciona:</h2>
+  <h3>Cómo funciona:</h3>
   <p>Mi empresa se llama BlueHackers. Somos la empresa más grande de escalado de negocios high ticket en español.</p>
   <p>Ayudamos a coaches, infoproductores y agencias que facturan un mínimo de 1.000 USD / mes, a crecer a 100.000 USD al mes su negocio con mentoría 1-1 y garantías por contrato.</p>
   <p>Instalaremos nuestro sistema de marketing y ventas en tu negocio para captar clientes en escala de forma predecible y rentable.</p>
