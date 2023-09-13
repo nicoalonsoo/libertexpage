@@ -5,7 +5,7 @@ import logo from "../../multimedia/log.jpg";
 import { eventLead } from "../../utils/pixelEvents/PixelEvents";
 import { useHistory } from "react-router-dom";
 import Select from "react-select";
-const Registro = ({ actualizarEstado }) => {
+const Registro = ({ actualizarEstado, countries }) => {
   const history = useHistory();
   const [registro, setRegistro] = useState({
     name: "",
@@ -13,23 +13,10 @@ const Registro = ({ actualizarEstado }) => {
     phone: "",
     countryCode: null,
   });
-  const countries = [
-    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
-    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
-    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
-    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
-    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
-    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
-    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
-    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
-    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
-    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
-    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
-    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
-    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
-    { value: "+1", label: "Estados Unidos", flag: "🇺🇸" },
-    // Agrega más países según tus necesidades
-  ];
+//   const [country, setCountry] = useState({
+// countries
+//   });
+  
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({
     name: "completar con su nombre",
@@ -103,6 +90,7 @@ const Registro = ({ actualizarEstado }) => {
     });
   };
 
+
   return (
     <div className="max-w-[1100px] flex items-center justify-center">
       <div className="max-w-[700px] p-4 bg-white rounded-lg shadow-lg overflow-auto max-h-[700px] relative">
@@ -123,7 +111,7 @@ const Registro = ({ actualizarEstado }) => {
           className="text-sm md:text-lg font-bold text-red-500 mb-2 mt-0 mx-4 md:my-0 text-left"
           style={{ marginBottom: "1rem" }}
         >
-          *Utilizaremos estos datis para ponernos en contacto y regalarte
+          *Utilizaremos estos datos para ponernos en contacto y regalarte
           material de entrenamiento extra en base tus necesidades específicas de
           trading.
         </h3>
@@ -136,7 +124,9 @@ const Registro = ({ actualizarEstado }) => {
         </h3>
 
         <form className="max-w-[400px] sm:max-w-[700px] mx-auto">
-          <div className="mb-2">
+          <div className="mb-2"
+          style={{ marginBotton: "4rem" }}
+          >
             <label htmlFor="name" className="block mb-2 text-sm text-gray-600">
               Nombre y apellido
             </label>
@@ -153,15 +143,26 @@ const Registro = ({ actualizarEstado }) => {
               <span className="text-red-500">{errors.name}</span>
             )}
           </div>
+          <div>
+          <label htmlFor="phone" className="block mb-2 text-sm text-gray-600">
+              Numero de telefono
+            </label>
           <div className="flex">
-            <Select
+          <select onChange={handleCountryChange}
+              className="w-1/3 px-4 py-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                {countries.map((country) => <option value={country.code}>
+                <img src={country.flag} alt={country.name} className="w-6 h-4" />{country.code} {country.name}
+                  </option>
+                )}
+            </select>  
+            {/* <Select
               id="countryCode"
               name="countryCode"
-              options={countries}
+              options={countries.map((country) => country.name)}
               value={registro.countryCode}
               onChange={handleCountryChange}
               className="w-1/3 px-4 py-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
-            />
+            /> */}
             <input
               type="text"
               id="phone"
@@ -174,6 +175,7 @@ const Registro = ({ actualizarEstado }) => {
             {formSubmitted && errors.phone && (
               <span className="text-red-500">{errors.phone}</span>
             )}
+          </div>
           </div>
           <div className="mb-2">
             <label htmlFor="email" className="block mb-2 text-sm text-gray-600">

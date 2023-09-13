@@ -1,11 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import gif from "../../multimedia/gif.gif";
 import "./Landing.css";
 import Registro from "../../componentes/Registro/Registro";
 import Header from "../../componentes/Header/Header";
 import Footer from "../../componentes/Footer/Footer";
+import { useSelector, useDispatch } from "react-redux";
+import { getCountries } from "../../redux/actions";
 const Landing = () => {
+  const countries = useSelector((state) => state.countries);
+  const dispatch = useDispatch();
   const [showForm, setShowform] = useState(false);
+
+  useEffect(() => {
+    dispatch(getCountries());
+  }, [dispatch]);
+
   const handleImageHover = (e) => {
     e.target.classList.toggle("hovered-image");
     e.target.style.cursor = "pointer";
@@ -18,7 +27,7 @@ const Landing = () => {
   const actualizarEstadoPadre = (estado) => {
     setShowform(estado);
   };
-
+  const modifiedCountries = countries.filter(country => country.code);
   return (
     <div>
       <Header />
@@ -79,7 +88,7 @@ const Landing = () => {
           ></div>
           <div className="fixed inset-0 flex items-center justify-center z-50">
             <div className="bg-white p-4 rounded-lg shadow-lg">
-              <Registro actualizarEstado={actualizarEstadoPadre} />
+              <Registro actualizarEstado={actualizarEstadoPadre} countries={modifiedCountries}/>
             </div>
           </div>
         </>
