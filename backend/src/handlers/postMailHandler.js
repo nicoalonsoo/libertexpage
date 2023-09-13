@@ -14,9 +14,7 @@ const mailHandler = async (destinatario, asunto, cuerpo) => {
             },
     });  
 
-      console.log(destinatario);
       const mailOptions = mailController(destinatario, asunto, cuerpo)
-      console.log(mailOptions);
 
       await transporter.sendMail(mailOptions);
     } catch (error) {

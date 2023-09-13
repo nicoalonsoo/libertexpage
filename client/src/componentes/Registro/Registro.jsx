@@ -134,7 +134,7 @@ const Registro = ({ actualizarEstado, countries }) => {
         <form className="max-w-[400px] sm:max-w-[700px] mx-auto">
           <div className="mb-2">
             <label htmlFor="name" className="block mb-1 sm:mb-2 text-sm text-gray-600">
-              Nombre y apellido
+              Ingresá tu Primer Nombre y Apellido
             </label>
             <input
               type="text"
@@ -151,14 +151,14 @@ const Registro = ({ actualizarEstado, countries }) => {
           </div>
           <div>
             <label htmlFor="phone" className="block mb-1 sm:mb-2 text-sm text-gray-600">
-              Numero de telefono
+            Ingresá tu Numero de telefono
             </label>
             <div className="flex">
               <Select
                 options={countries.map((country) => ({
                   value: country.code,
                   label: (
-                    <div className="flex items-center">
+                    <div className="cursor-pointer flex items-center">
                       <img
                         src={country.flag}
                         alt={country.name}
@@ -174,7 +174,7 @@ const Registro = ({ actualizarEstado, countries }) => {
                 value={selectedCountry ? {
                   value: registro.countryCode,
                   label: (
-                    <div className="flex items-center">
+                    <div className="flex items-center cursor-pointer">
                       <img
                         src={selectedCountry.flag}
                         alt={selectedCountry.name}
@@ -211,7 +211,7 @@ const Registro = ({ actualizarEstado, countries }) => {
           </div>
           <div className="mb-2">
             <label htmlFor="email" className="block mb-1 sm:mb-2 text-sm text-gray-600">
-              Correo electrónico
+            Ingresá tu Correo electrónico
             </label>
             <input
               type="email"

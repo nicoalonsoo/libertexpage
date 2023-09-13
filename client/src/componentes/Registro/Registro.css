@@ -7,6 +7,7 @@
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     max-width: 190px;
+    cursor: pointer;
 }
 .css-13cymwt-control {
     cursor: pointer;
@@ -24,4 +25,5 @@
     padding-top: 2px;
     color: hsl(0, 0%, 20%);
     box-sizing: border-box;
+    cursor: pointer;
 }

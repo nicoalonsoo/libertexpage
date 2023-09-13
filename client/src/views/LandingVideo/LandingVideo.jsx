@@ -62,7 +62,7 @@ const LandingVideo = () => {
             onClick={() => handleClick()}
           >
             REGÍSTRATE!
-            <p className="text-10px sm:text-0.875rem">
+            <p className="text-0.875rem leading-1.25rem">
               (sólo para personas que quieren iniciarse en el trading o que ya
               se iniciaron pero no tienen buenos resultados).
             </p>
