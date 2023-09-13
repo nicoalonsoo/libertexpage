@@ -82,7 +82,7 @@ const emailTemplate = `
   <p>Suena bien?</p>
   <p>Entonces <a href="URL_DEL_CORREO">toca aquí</a> para ver los detalles y tocar el botón de agendar una llamada.</p>
   <p>-Marcos</p>
-  <a href="URL_DEL_CORREO" class="button">Ver el video</a>
+  <a href="https://libertextradingclub.vercel.app/video" class="button">Ver el video</a>
 </body>
 </html>
 `
