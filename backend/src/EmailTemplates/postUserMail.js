@@ -42,7 +42,7 @@ const emailTemplate = `
 </head>
 
 <body>
-  <h2>HOLA %NOMBRE% ¿Quieres crecer tu facturación? Entonces sigue leyendo</h1>
+  <h2>Hola %NOMBRE% ¿Quieres crecer tu facturación? Entonces sigue leyendo</h1>
   <p>Instalaremos nuestro sistema de marketing y ventas en tu negocio para captar clientes en escala de forma predecible y rentable.</p>
   <p>(Que nos genera +170.000 USD al mes con +60% de rentabilidad en promedio).</p>
   <p>Y si no generas hasta 50.000 USD / mes extras en menos de 6 meses…</p>
