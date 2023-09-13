@@ -11,6 +11,7 @@ module.exports = withMT({
       },
       fontSize: {
         '12px': '12px',
+        '10px': '10px',
         '0.875rem': '0.875rem',
       },
       lineHeight: {

@@ -5,6 +5,7 @@ import logo from "../../multimedia/log.jpg";
 import { eventLead } from "../../utils/pixelEvents/PixelEvents";
 import { useHistory } from "react-router-dom";
 import Select from "react-select";
+import './Registro.css'
 const Registro = ({ actualizarEstado, countries }) => {
   const history = useHistory();
   const [registro, setRegistro] = useState({
@@ -132,7 +133,7 @@ const Registro = ({ actualizarEstado, countries }) => {
 
         <form className="max-w-[400px] sm:max-w-[700px] mx-auto">
           <div className="mb-2">
-            <label htmlFor="name" className="block mb-2 text-sm text-gray-600">
+            <label htmlFor="name" className="block mb-1 sm:mb-2 text-sm text-gray-600">
               Nombre y apellido
             </label>
             <input
@@ -149,7 +150,7 @@ const Registro = ({ actualizarEstado, countries }) => {
             )}
           </div>
           <div>
-            <label htmlFor="phone" className="block mb-2 text-sm text-gray-600">
+            <label htmlFor="phone" className="block mb-1 sm:mb-2 text-sm text-gray-600">
               Numero de telefono
             </label>
             <div className="flex">
@@ -169,7 +170,7 @@ const Registro = ({ actualizarEstado, countries }) => {
                     </div>
                   ),
                 }))}
-                placeholder="Código de Área"
+                placeholder={<span className="sm:text-sm text-10px leading-1.25rem text-gray-600 ">Código de Area</span>}
                 value={selectedCountry ? {
                   value: registro.countryCode,
                   label: (
@@ -209,7 +210,7 @@ const Registro = ({ actualizarEstado, countries }) => {
             )}
           </div>
           <div className="mb-2">
-            <label htmlFor="email" className="block mb-2 text-sm text-gray-600">
+            <label htmlFor="email" className="block mb-1 sm:mb-2 text-sm text-gray-600">
               Correo electrónico
             </label>
             <input
