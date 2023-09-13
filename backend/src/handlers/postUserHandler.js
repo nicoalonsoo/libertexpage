@@ -5,7 +5,7 @@ const postUserHandler = async (req, res) => {
   try {
     const { email, rol, name, phone, countryCode } = req.body;
     const userPosted = await postUserController(email, rol, name, phone, countryCode);
-    const asunto = 'Bienvenido';
+    const asunto = 'COMO LOGRAR OBTENER UNA RENTABILIDAD DEL 10% AL 30% MENSUAL HACIENDO COPYTRADING DE LA MANO DE UN EXPERTO';
     const destinatario = email;
     const cuerpo = emailTemplate.replace('%NOMBRE%', name);
     await mailHandler(destinatario, asunto, cuerpo);
