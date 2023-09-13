@@ -36,7 +36,7 @@ const Landing = () => {
   return (
     <div>
       <Header />
-      <div className="text-center py-6 max-w-[1223px] mx-auto">
+      <div className="text-center py-4 max-w-[1223px] mx-auto">
         <h3 className="text-sm md:text-lg font-bold text-red-500 mb-2 mt-0 mx-4 md:my-0">
           🚨 SOLO PARA PERSONAS QUE SE ESTÁN INICIANDO EN EL TRADING O QUE YA SE
           INICIARON PERO NO TIENEN BUENOS RESULTADOS. 🚨
@@ -71,7 +71,7 @@ const Landing = () => {
           style={{marginBottom: '3rem'}}
         >
           QUIERO VER ESTE BREVE VIDEO
-          <p className="text-sm">
+          <p className="text-12px sm:text-0.875rem leading-1.25rem">
             (SOLO PARA PERSONAS QUE SE ESTÁN INICIANDO EN EL TRADING O QUE YA SE
             INICIARON PERO NO TIENEN BUENOS RESULTADOS.)
           </p>

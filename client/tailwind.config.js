@@ -9,6 +9,13 @@ module.exports = withMT({
       fontFamily: {
         sans: ['sans-serif'],
       },
+      fontSize: {
+        '12px': '12px',
+        '0.875rem': '0.875rem',
+      },
+      lineHeight: {
+        '1.25rem': '1.25rem',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
