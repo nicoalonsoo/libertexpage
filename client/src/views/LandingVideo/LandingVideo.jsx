@@ -18,7 +18,7 @@ const LandingVideo = () => {
       <Header />
       <div className="text-center py-8 max-w-[1200px] mx-auto">
         <h3
-          className="text-lg md:text-2xl mb-4 font-bold mx-2 my-4 md:my-0"
+          className="text-lg md:text-2xl mb-4 font-bold mx-4 my-4 md:my-0"
           style={{ marginBottom: "1rem" }}
         >
           {" "}
@@ -31,22 +31,22 @@ const LandingVideo = () => {
           PASO 1: MIRA EL VIDEO
         </h1>
         <div className="mx-auto max-w-[700px] mb-8 mt-8">
-          <DropboxVideo />
+          <DropboxVideo/>
         </div>
         <h1 className="text-3xl md:text-5xl font-bold mb-4">
           PASO 2: REGISTRATE EN NUESTRA ACADEMIA
         </h1>
 
-        <h3 className="text-sm md:text-lg font-bold text-red-500 mb-4 mx-2 my-4 md:my-0">
+        <h3 className="text-sm md:text-lg font-bold text-red-500 mb-4 mx-4 my-4 md:my-0">
           *Si ya tienes cuenta en Libertex puedes registrarte con el mismo
           nombre y número de teléfono pero distinto email.
         </h3>
-        <h3 className="text-sm md:text-lg font-bold text-red-500 mb-4 mx-2 my-4 md:my-0">
+        <h3 className="text-sm md:text-lg font-bold text-red-500 mb-4 mx-4 my-4 md:my-0">
           *Solamente regístrate si tienes más de $100 dólares para depositar en
           tu cuenta de trading
         </h3>
         <h3
-          className="text-sm md:text-lg font-bold text-red-500 mb-4 mx-2 my-4 md:my-0"
+          className="text-sm md:text-lg font-bold text-red-500 mb-4 mx-4 my-4 md:my-0"
           style={{ marginBottom: "1rem" }}
         >
           *No somos una empresa multinivel ni un fondo de inversión, somos una

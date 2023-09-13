@@ -18,7 +18,7 @@ function Video() {
   }, []);
 
   return (
-    <div>
+    <div className="mx-4 sm:mx-0">
       <video ref={videoRef}  width="720" height="640" autoPlay controls playsInline>
         <source src={video} type="video/mp4" />
         Tu navegador no soporta la reproducción de videos.
