@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getUsers } from "../../redux/actions";
+import { getUsers, getCode } from "../../redux/actions";
 
 const UserTable = () => {
   const users = useSelector((state) => state.users);
@@ -10,9 +10,15 @@ const UserTable = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    console.log(currentPage);
+    const urlParams = new URLSearchParams(window.location.search);
+    const accessCode = urlParams.get('code');
+    
+    if (accessCode) {
+      dispatch(getCode(accessCode));
+    }
     dispatch(getUsers(currentPage));
   }, [dispatch, currentPage]);
+
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
