@@ -7,7 +7,7 @@ import Unsubscribe  from "./views/Unsubscribe/Unsubscribe";
 import './App.css';
 // https://libertextradingclub.fly.dev
 // http://localhost:3000
-axios.defaults.baseURL = 'http://localhost:3001';
+axios.defaults.baseURL = 'https://libertextradingclub.fly.dev';
 function App() {
   return (
     <div className="App">
