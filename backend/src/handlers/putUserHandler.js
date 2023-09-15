@@ -1,7 +1,8 @@
 const { putUserController } = require('../controllers/putUserController.js');
 
 const putUsersHandler = async (req, res) => {
-  const email = req.params.email;
+  const email = req.query.email;
+  console.log(email);
   const { name, status  } = req.body;
   try {
     await putUserController( name, email, status );

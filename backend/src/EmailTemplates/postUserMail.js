@@ -6,42 +6,44 @@ const emailTemplate = `
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Correo Electrónico</title>
   <style>
-    body {
-      font-size: 19px;
-      /* Establece el tamaño de fuente predeterminado para el cuerpo del correo */
-    }
+  .container {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
 
-    p {
-      font-size: 19px;
-      /* Establece el tamaño de fuente para las etiquetas <p> */
-    }
-            ul {
-            list-style-type: square;
-            margin-left: 20px;
-        }
-        
-        li {
-            font-size: 20px; /* Cambiar el tamaño de fuente de las <li> */
-            color: #333; /* Cambiar el color del texto de las <li> */
-        }
+  p {
+    font-size: 16px;
+    /* Establece el tamaño de fuente para las etiquetas <p> */
+  }
+          ul {
+          list-style-type: square;
+          margin-left: 20px;
+      }
+      
+      li {
+          font-size: 16px; /* Cambiar el tamaño de fuente de las <li> */
+          color: #333; /* Cambiar el color del texto de las <li> */
+      }
 
-        a.button {
-            display: block;
-            width: 200px; /* Ancho del botón */
-            margin: 0 auto; /* Centrar el botón horizontalmente */
-            padding: 10px; /* Espaciado interno del botón */
-            text-align: center;
-            background-color: #ffa323; /* Color de fondo del botón */
-            color: #fff; /* Color del texto del botón */
-            font-size: 18px; /* Tamaño de fuente del botón */
-            text-decoration: none; /* Eliminar subrayado de enlace */
-            border-radius: 5px; /* Borde redondeado del botón */
-        }
+      a.button {
+          display: block;
+          width: 200px; /* Ancho del botón */
+          margin: 0 auto; /* Centrar el botón horizontalmente */
+          padding: 10px; /* Espaciado interno del botón */
+          text-align: center;
+          background-color: #ffa323; /* Color de fondo del botón */
+          color: #fff; /* Color del texto del botón */
+          font-size: 16px; /* Tamaño de fuente del botón */
+          text-decoration: none; /* Eliminar subrayado de enlace */
+          border-radius: 5px; /* Borde redondeado del botón */
+      }
 
   </style>
 </head>
 
-<body>
+<body>  
+<div class="container">
+<div class="content">
   <h2>Hola %NOMBRE% ¿Quieres crecer tu facturación? Entonces sigue leyendo</h1>
   <p>Instalaremos nuestro sistema de marketing y ventas en tu negocio para captar clientes en escala de forma predecible y rentable.</p>
   <p>(Que nos genera +170.000 USD al mes con +60% de rentabilidad en promedio).</p>
@@ -82,7 +84,11 @@ const emailTemplate = `
   <p>Suena bien?</p>
   <p>Entonces <a href="URL_DEL_CORREO">toca aquí</a> para ver los detalles y tocar el botón de agendar una llamada.</p>
   <p>-Marcos</p>
+  <p>Enviado a %EMAIL%</p>
+  <a href="https://libertextradingclub.vercel.app/unsubscribe?email=%EMAIL%" >Unsubscribe</a>
   <a href="https://libertextradingclub.vercel.app/video" class="button">Ver el video</a>
+  </div>
+  </div>
 </body>
 </html>
 `
