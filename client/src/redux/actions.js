@@ -1,12 +1,12 @@
 import axios from "axios";
 export const GET_USERS = "GET_USERS";
 export const GET_COUNTRIES = "GET_COUNTRIES";
-export const GET_CODE = "GET_CODE";
+// export const GET_CODE = "GET_CODE";
 
-export const getUsers = (page) => {
+export const getUsers = (code, page) => {
     return async function(dispatch) {
       try {
-        const backData = await axios.get(`/users?page=${page}`);
+        const backData = await axios.get(`/users?code=${code}&page=${page}`);
         const users = backData.data.users;
         dispatch({ type: GET_USERS, payload: users });
       } catch (error) {
@@ -15,17 +15,17 @@ export const getUsers = (page) => {
     };
   };
 
-export const getCode = (code) => {
-    return async function(dispatch) {
-      try {
-        const response = await axios.get(`/userstable?code=${code}`);
-        const data = response.data;
-        dispatch({ type: GET_CODE, payload: data });
-      } catch (error) {
-        throw new Error('No puedes ingresar a este sitio')
-      }
-    };
-  };
+// export const getCode = (code) => {
+//     return async function(dispatch) {
+//       try {
+//         const response = await axios.get(`/userstable?code=${code}`);
+//         const data = response.data;
+//         dispatch({ type: GET_CODE, payload: data });
+//       } catch (error) {
+//         throw new Error('No puedes ingresar a este sitio')
+//       }
+//     };
+//   };
 
 
   export const getCountries = () => {

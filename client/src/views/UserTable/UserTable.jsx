@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getUsers, getCode } from "../../redux/actions";
-
+import { getUsers } from "../../redux/actions";
+import ExcelDownloadButton from "../../componentes/ExcellButton/excellButton";
 const UserTable = () => {
   const users = useSelector((state) => state.users);
   const count = useSelector((state) => state.count);
@@ -14,9 +14,8 @@ const UserTable = () => {
     const accessCode = urlParams.get('code');
     
     if (accessCode) {
-      dispatch(getCode(accessCode));
+      dispatch(getUsers(accessCode, currentPage));
     }
-    dispatch(getUsers(currentPage));
   }, [dispatch, currentPage]);
 
 
@@ -38,8 +37,13 @@ const UserTable = () => {
         <div className="flex justify-between">
           <div className="inline-flex border rounded w-7/12 px-2 lg:px-6 h-12 bg-transparent">
             <div className="flex flex-wrap items-stretch w-full h-full mb-6 relative">
-              <div className="flex">
-                <span className="flex items-center leading-normal bg-transparent rounded rounded-r-none border border-r-0 border-none lg:px-3 py-2 whitespace-no-wrap text-grey-dark text-sm">
+              <input
+                type="text"
+                className="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-base text-gray-500 font-thin"
+                placeholder="Search"
+              />
+                            <div className="flex">
+                <button className="flex items-center leading-normal bg-transparent rounded rounded-r-none border border-r-0 border-none lg:px-3 py-2 whitespace-no-wrap text-grey-dark text-sm">
                   <svg
                     width="18"
                     height="18"
@@ -61,15 +65,11 @@ const UserTable = () => {
                       stroke-linejoin="round"
                     />
                   </svg>
-                </span>
+                </button>
               </div>
-              <input
-                type="text"
-                className="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-base text-gray-500 font-thin"
-                placeholder="Search"
-              />
             </div>
           </div>
+          <ExcelDownloadButton/>
         </div>
       </div>
       <div className="align-middle inline-block min-w-full shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
@@ -87,6 +87,9 @@ const UserTable = () => {
               </th>
               <th className="px-6 py-3 border-b-2 border-gray-300 text-sm leading-4 text-blue-500 tracking-wider">
                 Celular
+              </th>
+              <th className="px-6 py-3 border-b-2 border-gray-300 text-sm leading-4 text-blue-500 tracking-wider">
+                Pais
               </th>
               <th className="px-6 py-3 border-b-2 border-gray-300 text-sm leading-4 text-blue-500 tracking-wider">
                 Status
@@ -119,6 +122,9 @@ const UserTable = () => {
                 </td>
                 <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
                   {user.phone}
+                </td>
+                <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+                  {user.country}
                 </td>
                 <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
                   <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">

@@ -24,6 +24,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    country: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     rol: {
         type: DataTypes.STRING,
         defaultValue: 'usuario',

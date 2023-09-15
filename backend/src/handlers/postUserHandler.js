@@ -3,8 +3,8 @@ const { mailHandler } = require('./postMailHandler');
 const emailTemplate = require('../EmailTemplates/postUserMail')
 const postUserHandler = async (req, res) => {
   try {
-    const { email, rol, name, phone, countryCode } = req.body;
-    const userPosted = await postUserController(email, rol, name, phone, countryCode);
+    const { email, rol, name, phone, countryCode, country } = req.body;
+    const userPosted = await postUserController(email, rol, name, phone, countryCode, country);
     const asunto = 'COMO LOGRAR OBTENER UNA RENTABILIDAD DEL 10% AL 30% MENSUAL HACIENDO COPYTRADING DE LA MANO DE UN EXPERTO';
     const destinatario = email;
     const cuerpo = emailTemplate.replace('%NOMBRE%', name);

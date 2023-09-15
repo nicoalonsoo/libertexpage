@@ -1,4 +1,4 @@
-import { GET_USERS, GET_COUNTRIES, GET_CODE } from "./actions";
+import { GET_USERS, GET_COUNTRIES} from "./actions";
 
 const initialState = {
   users: [],
@@ -27,11 +27,11 @@ const reducer = (state = initialState, action) => {
         return country;
       });
       return{...state, countries: modifiedCountries}
-    case GET_CODE:
-      return {
-        ...state,
-        accessCode: action.payload,
-      };
+    // case GET_CODE:
+    //   return {
+    //     ...state,
+    //     accessCode: action.payload,
+    //   };
       default:
         return{...state};
   }

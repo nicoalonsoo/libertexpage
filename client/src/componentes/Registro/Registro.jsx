@@ -13,6 +13,7 @@ const Registro = ({ actualizarEstado, countries }) => {
     email: "",
     phone: "",
     countryCode: null,
+    country: '',
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -32,14 +33,14 @@ const Registro = ({ actualizarEstado, countries }) => {
     }));
     validate({ ...registro, [name]: value });
   };
-  const handleCountryChange = (e) => {
-    const code = e.target.value;
-    setRegistro({
-      ...registro,
-      countryCode: code,
-    });
-    validate({ ...registro, countryCode: code });
-  };
+  // const handleCountryChange = (e) => {
+  //   const code = e.target.value;
+  //   setRegistro({
+  //     ...registro,
+  //     countryCode: code,
+  //   });
+  //   validate({ ...registro, countryCode: code });
+  // };
 
   const validate = (registro) => {
     let errors = {};
@@ -156,7 +157,7 @@ const Registro = ({ actualizarEstado, countries }) => {
             <div className="flex">
               <Select
                 options={countries.map((country) => ({
-                  value: country.code,
+                  value: [country.code,country.name],
                   label: (
                     <div className="cursor-pointer flex items-center">
                       <img
@@ -172,7 +173,7 @@ const Registro = ({ actualizarEstado, countries }) => {
                 }))}
                 placeholder={<span className="sm:text-sm text-10px leading-1.25rem text-gray-600 ">Código de Area</span>}
                 value={selectedCountry ? {
-                  value: registro.countryCode,
+                  value: [registro.countryCode, registro.country],
                   label: (
                     <div className="flex items-center cursor-pointer">
                       <img
@@ -189,7 +190,8 @@ const Registro = ({ actualizarEstado, countries }) => {
                 onChange={(selectedOption) => {
                   setRegistro({
                     ...registro,
-                    countryCode: selectedOption.value,
+                    countryCode: selectedOption.value[0],
+                    country: selectedOption.value[1],
                   });
                   validate({ ...registro, countryCode: selectedOption.value });
                 }}
