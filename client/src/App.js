@@ -6,7 +6,7 @@ import LandingVideo from './views/LandingVideo/LandingVideo';
 import Unsubscribe  from "./views/Unsubscribe/Unsubscribe";
 import './App.css';
 // https://libertextradingclub.fly.dev
-axios.defaults.baseURL = 'http://localhost:3001';
+axios.defaults.baseURL = 'https://libertextradingclub.fly.dev';
 function App() {
   return (
     <div className="App">
