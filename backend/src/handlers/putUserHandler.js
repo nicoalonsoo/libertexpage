@@ -1,12 +1,16 @@
 const { putUserController } = require('../controllers/putUserController.js');
+const { putUsersController } = require('../controllers/putUsersController.js');
 
 const putUsersHandler = async (req, res) => {
   const email = req.query.email;
-  console.log(email);
-  const { name, status  } = req.body;
+  const { name, status, checked, owner, users } = req.body;
   try {
-    await putUserController( name, email, status );
-    res.send('Registro modificado correctamente');
+    if(users){
+      await putUsersController(users)
+    } else {
+      await putUserController( name, email, status, checked, owner);
+    }
+    res.status(201).send(' correctamente');
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: error.message });

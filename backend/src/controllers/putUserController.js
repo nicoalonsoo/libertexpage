@@ -1,6 +1,6 @@
 const { User } = require('../db');
 
-const putUserController = async ( name, email, status ) => {
+const putUserController = async ( name, email, status, checked, owner ) => {
     // Busca el registro en la base de datos por su ID
     const user = await User.findOne({ where: { email } })
     if (!user) {
@@ -10,6 +10,12 @@ const putUserController = async ( name, email, status ) => {
     // Actualiza los campos que deseas modificar
     if(name) {
       user.name = name;
+    }
+    if(checked) {
+      user.checked = checked;
+    }
+    if(owner) {
+      user.owner = owner;
     }
     if(email){
       user.email = email;
