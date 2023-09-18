@@ -8,6 +8,10 @@ const UserTable = () => {
   const dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [changes, setChanges] = useState({
+    check: false,
+    Owner: '',
+  });
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -70,6 +74,8 @@ const UserTable = () => {
             </div>
           </div>
           <ExcelDownloadButton/>
+          <button className=""
+          >Guardar</button>
         </div>
       </div>
       <div className="align-middle inline-block min-w-full shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
