@@ -5,9 +5,9 @@ import UserTable from './views/UserTable/UserTable';
 import LandingVideo from './views/LandingVideo/LandingVideo';
 import Unsubscribe  from "./views/Unsubscribe/Unsubscribe";
 import './App.css';
-// https://libertextradingclub.fly.dev
+// https://libertexpage-production-0bb6.up.railway.app
 // http://localhost:3001
-axios.defaults.baseURL = 'http://localhost:3001';
+axios.defaults.baseURL = 'https://libertexpage-production-0bb6.up.railway.app';
 function App() {
   return (
     <div className="App">
