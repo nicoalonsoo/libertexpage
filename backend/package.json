@@ -24,8 +24,5 @@
     "pg": "^8.5.1",
     "sequelize": "^6.3.5",
     "xlsx": "^0.18.5"
-  },
-  "devDependencies": {
-    "@flydotio/dockerfile": "^0.4.9"
   }
 }
