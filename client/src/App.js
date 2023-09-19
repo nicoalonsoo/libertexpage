@@ -7,7 +7,7 @@ import Unsubscribe  from "./views/Unsubscribe/Unsubscribe";
 import './App.css';
 // https://libertexpage-production-0bb6.up.railway.app
 // http://localhost:3001
-axios.defaults.baseURL = {BACK};
+axios.defaults.baseURL = 'https://libertexpage-production-0bb6.up.railway.app';
 function App() {
   return (
     <div className="App">
