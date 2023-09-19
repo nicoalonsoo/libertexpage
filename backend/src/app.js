@@ -16,8 +16,8 @@ server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
 server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://libertexpage.vercel.app');
-  // https://libertextradingclub.vercel.app
+  res.header('Access-Control-Allow-Origin', 'https://libertexpage-8g5e1nnxy-nicoalonsoo.vercel.app');
+  // https://libertexpage-8g5e1nnxy-nicoalonsoo.vercel.app
   // http://localhost:3001
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
