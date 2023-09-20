@@ -44,7 +44,7 @@ const emailTemplate = `
 <body>  
 <div class="container">
 <div class="content">
-  <h2>Hola %NOMBRE% ¿Quieres crecer tu facturación? Te dejo la revisión del video.</h1>
+  <h2>Hola %NOMBRE% ¿Quieres crecer tu rentabilidad? Te dejo la revisión del video.</h1>
   <p>Enviado a %EMAIL%</p>
   <a href="https://libertextradingclub.vercel.app/unsubscribe?email=%EMAIL%" >Unsubscribe</a>
   <a href="https://libertextradingclub.vercel.app/video" class="button">Ver el video</a>
