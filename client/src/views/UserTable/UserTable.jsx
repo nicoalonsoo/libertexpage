@@ -13,10 +13,15 @@ const UserTable = () => {
   const [changes, setChanges] = useState({});
   const [isChanging, setIsChanging] = useState(false);
   const [filter, setFilter] = useState({});
+  const [search, setSearch ] = useState('');
+  const [isSearching, setIsSearching] = useState(false);
 
   const urlParams = new URLSearchParams(window.location.search);
   const accessCode = urlParams.get("code");
   useEffect(() => {
+    if(isSearching){
+      handleSearchEvent();
+    }else{
     if(Object.keys(filter).length !== 0){
       handleFilter(filter);
     }else{
@@ -24,6 +29,7 @@ const UserTable = () => {
       dispatch(getUsers(accessCode, currentPage));
     }
   }
+}
   }, [dispatch, currentPage]);
 
   const handlePageChange = (newPage) => {
@@ -101,6 +107,26 @@ const UserTable = () => {
     }
   };
 
+const handleSearch = (e) => {
+setSearch(e.target.value);
+};
+
+const handleSubmitSearch = (e) => {
+e.preventDefault()
+handleSearchEvent();
+};
+const handleNotSearching = (e) => {
+e.preventDefault()
+setIsSearching(false);
+setSearch('');
+dispatch(getUsers(accessCode, 1))
+};
+
+const handleSearchEvent = () => {
+  dispatch(getUsers(accessCode, currentPage, search));
+  setIsSearching(true);
+};
+
   return (
     <div className="overflow-x-auto ">
       <div className="my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
@@ -109,12 +135,21 @@ const UserTable = () => {
             <div className="inline-flex border rounded w-7/12 px-2 lg:px-6 bg-transparent">
               <div className="flex flex-wrap items-stretch w-full h-full mb-2 relative">
                 <input
+                  value={search}
+                  onChange={handleSearch}
                   type="text"
                   className="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-base text-gray-500 font-thin"
                   placeholder="Search"
                 />
                 <div className="flex">
-                  <button className="flex items-center leading-normal bg-transparent rounded rounded-r-none border border-r-0 border-none lg:px-3 py-2 whitespace-no-wrap text-grey-dark text-sm">
+                  {isSearching ? <button 
+                  onClick={(e) => handleNotSearching(e)}
+                  className="flex items-center leading-normal bg-transparent rounded rounded-r-none border border-r-0 border-none lg:px-3 py-2 whitespace-no-wrap text-grey-dark text-sm">
+                    X
+                  </button> :
+                  <button 
+                  onClick={(e) => handleSubmitSearch(e)}
+                  className="flex items-center leading-normal bg-transparent rounded rounded-r-none border border-r-0 border-none lg:px-3 py-2 whitespace-no-wrap text-grey-dark text-sm">
                     <svg
                       width="18"
                       height="18"
@@ -136,7 +171,7 @@ const UserTable = () => {
                         stroke-linejoin="round"
                       />
                     </svg>
-                  </button>
+                  </button>}
                 </div>
               </div>
             </div>

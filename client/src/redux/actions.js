@@ -3,10 +3,11 @@ export const GET_USERS = "GET_USERS";
 export const GET_COUNTRIES = "GET_COUNTRIES";
 export const UPDATE_FILTERED_USERS = 'UPDATE_FILTERED_USERS';
 
-export const getUsers = (code, page) => {
+export const getUsers = (code, page, search) => {
     return async function(dispatch) {
       try {
-        const backData = await axios.get(`/users?code=${code}&page=${page}`);
+        const queryParams = `code=${code}&page=${page}${search ? `&search=${search}` : ''}`;
+        const backData = await axios.get(`/users?${queryParams}`);
         const users = backData.data.users;
         dispatch({ type: GET_USERS, payload: users });
       } catch (error) {
