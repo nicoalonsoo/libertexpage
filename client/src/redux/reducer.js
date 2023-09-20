@@ -36,8 +36,9 @@ const reducer = (state = initialState, action) => {
       });
       return{...state, countries: modifiedCountries}
     case UPDATE_FILTERED_USERS:
-      const usersFiltered = action.payload
-      const contados = usersFiltered.length
+      const usersFiltered = action.payload.rows
+      const contados = action.payload.count
+      console.log(contados);
       return { ...state, users: usersFiltered, count: contados };
       default:
         return{...state};

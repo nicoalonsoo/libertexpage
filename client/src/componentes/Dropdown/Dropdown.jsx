@@ -15,22 +15,22 @@ function Dropdown({ handleFilter }) {
 
   return (
     <div className="flex">
-      <div className="mr-2">
-        <label htmlFor="select" className="text-gray-500 font-semibold text-sm py-1">
+      <div className="mr-2 ">
+        <label htmlFor="select" className="text-blue-500 font-semibold text-sm py-1">
           Filtrar por Status
         </label>
 
-        <select name="status" onChange={(e) => handleValue(e)}>
+        <select name="status" className="border-blue-500 border text-blue-500 rounded cursor-pointer" onChange={(e) => handleValue(e)}>
           <option value="Activo">Activo</option>
           <option value="Desactivado">Desactivado</option>
-          <option value="">Activos y desactivados</option>
+          <option value="todos">Activos y desactivados</option>
         </select>
       </div>
       <div className="mr-2">
-        <label htmlFor="select" className="text-gray-500 font-semibold text-sm py-1">
+        <label htmlFor="select" className="text-blue-500 font-semibold text-sm py-1">
            Filtrar por Paises
         </label>
-        <select name="country" onChange={(e) => handleValue(e)}>
+        <select name="country" className="border-blue-500 border text-blue-500 rounded cursor-pointer" onChange={(e) => handleValue(e)}>
           <option value="">Todos los Países</option>
           <option value="Argentina">Argentina</option>
           <option value="Chile">Chile</option>

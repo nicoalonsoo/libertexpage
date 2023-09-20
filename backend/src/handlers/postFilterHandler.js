@@ -6,7 +6,7 @@ const postFilterHandler = async (req, res) => {
     let users = [];
     const accessCode = req.query.code;
     if (req.query.code && accessCode === "132435") {
-      users = await postFilterController(status, country);
+      users = await postFilterController(status, country, req);
     }
     res.status(200).json(users);
   } catch (error) {

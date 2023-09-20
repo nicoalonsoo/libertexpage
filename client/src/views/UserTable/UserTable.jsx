@@ -17,9 +17,13 @@ const UserTable = () => {
   const urlParams = new URLSearchParams(window.location.search);
   const accessCode = urlParams.get("code");
   useEffect(() => {
+    if(Object.keys(filter).length !== 0){
+      handleFilter(filter);
+    }else{
     if (accessCode) {
       dispatch(getUsers(accessCode, currentPage));
     }
+  }
   }, [dispatch, currentPage]);
 
   const handlePageChange = (newPage) => {
@@ -86,7 +90,7 @@ const UserTable = () => {
   const handleFilter = (e) => {
     if (Object.keys(e).length > 0) {
       axios
-        .post(`/filter?code=${accessCode}`, e)
+        .post(`/filter?code=${accessCode}&page=${currentPage}`, e)
         .then((res) => {
           const users = res.data;
           dispatch(updateFilteredUsers(users))
