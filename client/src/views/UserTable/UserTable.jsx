@@ -86,7 +86,7 @@ const UserTable = () => {
   const handleFilter = (e) => {
     if (Object.keys(e).length > 0) {
       axios
-        .post(`/filter`, e)
+        .post(`/filter?code=${accessCode}`, e)
         .then((res) => {
           const users = res.data;
           dispatch(updateFilteredUsers(users))
