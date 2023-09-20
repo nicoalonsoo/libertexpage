@@ -32,7 +32,7 @@ const Landing = () => {
   const filteredCountryNames = ['British Virgin Islands', 'Canada', 'Venezuela', 'Cayman Islands', 'Caribbean Netherlands', 'Saint Vincent and the Grenadines', 'United States Virgin Islands', 'United States', 'French Guiana', 'Turks and Caicos Islands', 'Brazil', 'Falkland Islands', 'Sint Maarten', 'Belize', 'Montserrat', 'Suriname', 'Greenland', 'Jamaica', 'Guyana', 'Saint Barthélemy', 'Saint Pierre and Miquelon', 'Martinique', 'Guadeloupe', 'Saint Kitts and Nevis', 'Saint Martin', 'Anguilla', 'Saint Lucia', 'Curaçao', 'Dominican Republic', 'Trinidad and Tobago', 'Antigua and Barbuda'];
 
   const filterCountries = modifiedCountries.filter(country => !filteredCountryNames.includes(country.name));
-
+console.log(filterCountries);
   return (
     <div>
       <Header />

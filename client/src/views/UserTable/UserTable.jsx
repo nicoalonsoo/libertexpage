@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getUsers } from "../../redux/actions";
+import { getUsers, updateFilteredUsers } from "../../redux/actions";
 import ExcelDownloadButton from "../../componentes/ExcellButton/excellButton";
+import Dropdown from "../../componentes/Dropdown/Dropdown";
 import axios from "axios";
 const UserTable = () => {
   const users = useSelector((state) => state.users);
@@ -11,6 +12,8 @@ const UserTable = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [changes, setChanges] = useState({});
   const [isChanging, setIsChanging] = useState(false);
+  const [filter, setFilter] = useState({});
+
   const urlParams = new URLSearchParams(window.location.search);
   const accessCode = urlParams.get("code");
   useEffect(() => {
@@ -31,15 +34,15 @@ const UserTable = () => {
   }
   const lastPage = pageButtons.length - 1;
 
-const handleCheckboxChange = (userId) => {
-  setChanges((prevChanges) => ({
-    ...prevChanges,
-    [userId]: {
-      ...prevChanges[userId],
-      checked: !prevChanges[userId]?.checked || false, // Cambia el estado del checkbox
-    },
-  }));
-};
+  const handleCheckboxChange = (userId) => {
+    setChanges((prevChanges) => ({
+      ...prevChanges,
+      [userId]: {
+        ...prevChanges[userId],
+        checked: !prevChanges[userId]?.checked || false, // Cambia el estado del checkbox
+      },
+    }));
+  };
 
   const handleOwnerChange = (userId, ownerValue) => {
     setChanges((prevChanges) => ({
@@ -52,20 +55,21 @@ const handleCheckboxChange = (userId) => {
   };
 
   const handleSaveChanges = () => {
-    // Crea una lista de usuarios con cambios para enviar al servidor
     const usersWithChanges = Object.keys(changes).map((userId) => ({
       id: userId,
       owner: changes[userId].owner,
       checked: changes[userId].checked,
     }));
-
-    // Realiza una solicitud PUT masiva para actualizar los usuarios con cambios
     axios
       .put("/users", { users: usersWithChanges })
       .then((response) => {
         // Maneja la respuesta de la solicitud, por ejemplo, muestra una notificación de éxito
         alert("Cambios guardados con éxito");
+        if(Object.keys(filter).length === 0){
         dispatch(getUsers(accessCode, currentPage));
+      } else {
+        handleFilter(filter);
+      }
         setIsChanging(false);
       })
       .catch((error) => {
@@ -75,17 +79,31 @@ const handleCheckboxChange = (userId) => {
       });
   };
 
-const handleChange = () => {
-setIsChanging(true);
-};
+  const handleChange = () => {
+    setIsChanging(true);
+  };
+
+  const handleFilter = (e) => {
+    if (Object.keys(e).length > 0) {
+      axios
+        .post(`/filter`, e)
+        .then((res) => {
+          const users = res.data;
+          dispatch(updateFilteredUsers(users))
+          setFilter(e)
+        })
+        .catch((err) => alert(err));
+    } else {
+    }
+  };
 
   return (
-    <div className="overflow-x-auto overflow-hidden">
-      <div className="my-2 py-2 overflow-x-auto overflow-hidden sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
-        <div className="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12">
+    <div className="overflow-x-auto ">
+      <div className="my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
+        <div className="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-6 mt-4 overflow-hidden bg-white shadow-lg px-12">
           <div className="flex justify-between">
-            <div className="inline-flex border rounded w-7/12 px-2 lg:px-6 h-12 bg-transparent">
-              <div className="flex flex-wrap items-stretch w-full h-full mb-6 relative">
+            <div className="inline-flex border rounded w-7/12 px-2 lg:px-6 bg-transparent">
+              <div className="flex flex-wrap items-stretch w-full h-full mb-2 relative">
                 <input
                   type="text"
                   className="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-base text-gray-500 font-thin"
@@ -118,22 +136,29 @@ setIsChanging(true);
                 </div>
               </div>
             </div>
-            <ExcelDownloadButton />
-            <div>
+            <div className="flex">
+              <Dropdown handleFilter={handleFilter} />
+              <div className="mr-2">
+                <ExcelDownloadButton />
+              </div>
+              <div>
                 <button
-                onClick={!isChanging ? handleChange : handleSaveChanges}
-                 className="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
-                 {!isChanging ? "Realizar Cambios" : "Guardar"}
+                  onClick={!isChanging ? handleChange : handleSaveChanges}
+                  className="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"
+                >
+                  {!isChanging ? "Realizar Cambios" : "Guardar"}
                 </button>
+              </div>
             </div>
           </div>
         </div>
+        {/* <div className="py-4"></div> */}
         <div className="align-middle inline-block min-w-full shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
           <table className="align-middle min-w-full">
             <thead>
               <tr>
                 <th className="my-custom-header-style px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider align-middle lg:my-lg-custom-header-style">
-                  ID
+                  
                 </th>
                 <th className="my-custom-header-style my-lg-custom-header-style px-6 py-3 border-b-2 border-gray-300 text-sm leading-4 text-blue-500 tracking-wider align-middle">
                   Nombre
@@ -157,19 +182,19 @@ setIsChanging(true);
                   Check
                 </th>
                 <th className="px-6 py-3 border-b-2 border-gray-300 text-sm leading-4 text-blue-500 tracking-wider">
-                  Fecha
+                  Fecha de Creación
                 </th>
                 <th className="px-6 py-3 border-b-2 border-gray-300"></th>
               </tr>
             </thead>
             <tbody className="bg-white">
-              {users?.map((user) => (
+              {users?.map((user, index) => (
                 <tr key={user.id}>
                   <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                     <div className="flex items-center">
                       <div>
                         <div className="text-sm leading-5 text-gray-800">
-                          {user.id}
+                        {index + 1}
                         </div>
                       </div>
                     </div>
@@ -204,12 +229,14 @@ setIsChanging(true);
                   <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
                     {isChanging ? (
                       <input
-                      placeholder={user.owner}
+                        placeholder={user.owner}
                         type="text"
                         id="owner"
                         name="owner"
                         value={changes.owner}
-                        onChange={(e) => handleOwnerChange(user.id, e.target.value)}
+                        onChange={(e) =>
+                          handleOwnerChange(user.id, e.target.value)
+                        }
                         className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                         required
                       />
@@ -221,12 +248,16 @@ setIsChanging(true);
                     <input
                       placeholder={user.checked}
                       type="checkbox"
-                      checked={isChanging ? !!changes[user.id]?.checked : user.checked}
-                      onChange={isChanging ? () => handleCheckboxChange(user.id) : null}
+                      checked={
+                        isChanging ? !!changes[user.id]?.checked : user.checked
+                      }
+                      onChange={
+                        isChanging ? () => handleCheckboxChange(user.id) : null
+                      }
                     />
                   </td>
                   <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500 text-blue-900 text-sm leading-5">
-                    {user.createdAt}
+                    {user.createdAt.slice(0, 10)}
                   </td>
                   <td className="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
                     {/* <button 

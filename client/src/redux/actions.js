@@ -1,7 +1,7 @@
 import axios from "axios";
 export const GET_USERS = "GET_USERS";
 export const GET_COUNTRIES = "GET_COUNTRIES";
-// export const GET_CODE = "GET_CODE";
+export const UPDATE_FILTERED_USERS = 'UPDATE_FILTERED_USERS';
 
 export const getUsers = (code, page) => {
     return async function(dispatch) {
@@ -15,17 +15,12 @@ export const getUsers = (code, page) => {
     };
   };
 
-// export const getCode = (code) => {
-//     return async function(dispatch) {
-//       try {
-//         const response = await axios.get(`/userstable?code=${code}`);
-//         const data = response.data;
-//         dispatch({ type: GET_CODE, payload: data });
-//       } catch (error) {
-//         throw new Error('No puedes ingresar a este sitio')
-//       }
-//     };
-//   };
+  export const updateFilteredUsers = (filteredUsers) => {
+    return {
+      type: UPDATE_FILTERED_USERS,
+      payload: filteredUsers,
+    };
+  };
 
 
   export const getCountries = () => {

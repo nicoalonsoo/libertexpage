@@ -13,6 +13,7 @@ const getUsersController = async(req) => {
         users = await User.findOne({ where: { email: req.query.email } });
       } else {
         users = await User.findAndCountAll({
+          where: { status: 'Activo' },
           limit,
           offset: (page - 1) * limit,
         });
