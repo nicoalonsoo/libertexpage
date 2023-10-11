@@ -18,7 +18,7 @@ const UserTable = () => {
   const [search, setSearch] = useState("");
   const [isSearching, setIsSearching] = useState(false);
   const [order, setOrder] = useState("asc");
-  
+
   const urlParams = new URLSearchParams(window.location.search);
   const accessCode = urlParams.get("code");
   useEffect(() => {
@@ -143,9 +143,9 @@ const UserTable = () => {
   };
 
   const handleOrder = (value) => {
-    setOrder(value)
+    setOrder(value);
     dispatch(getUsers(accessCode, value, currentPage, search));
-  }
+  };
 
   return (
     <div className="overflow-x-auto ">
@@ -245,23 +245,25 @@ const UserTable = () => {
                 </th>
                 <th className="px-6 py-3 border-b-2 border-gray-300 text-sm leading-4 text-blue-500 tracking-wider relative">
                   Fecha de Creación
-                  {order === "asc" ? <button
-                  onClick={() => handleOrder("desc")}
-                  ><img
-                    src={Down} // Ruta a tu imagen de flecha
-                    alt="arrow up "
-                    className="absolute top-1/2 right-6 transform -translate-y-1/2 text-blue-500"
-                    style={{ width: "16px", height: "16px" }} // Ajusta el tamaño según tus necesidades
-                  />
-                  </button> : <button
-                  onClick={() => handleOrder("asc")}
-                  ><img
-                    src={Up} // Ruta a tu imagen de flecha
-                    alt="arrow up "
-                    className="absolute top-1/2 right-6 transform -translate-y-1/2 text-blue-500"
-                    style={{ width: "16px", height: "16px" }} // Ajusta el tamaño según tus necesidades
-                  />
-                  </button>}
+                  {order === "asc" ? (
+                    <button onClick={() => handleOrder("desc")}>
+                      <img
+                        src={Down} // Ruta a tu imagen de flecha
+                        alt="arrow up "
+                        className="absolute top-1/2 right-6 transform -translate-y-1/2 text-blue-500"
+                        style={{ width: "16px", height: "16px" }} // Ajusta el tamaño según tus necesidades
+                      />
+                    </button>
+                  ) : (
+                    <button onClick={() => handleOrder("asc")}>
+                      <img
+                        src={Up} // Ruta a tu imagen de flecha
+                        alt="arrow up "
+                        className="absolute top-1/2 right-6 transform -translate-y-1/2 text-blue-500"
+                        style={{ width: "16px", height: "16px" }} // Ajusta el tamaño según tus necesidades
+                      />
+                    </button>
+                  )}
                 </th>
                 <th className="px-6 py-3 border-b-2 border-gray-300"></th>
               </tr>
@@ -273,7 +275,9 @@ const UserTable = () => {
                     <div className="flex items-center">
                       <div>
                         <div className="text-sm leading-5 text-gray-800">
-                          {index + 1}
+                          {currentPage === 1
+                            ? index + 1
+                            : (currentPage - 1) * 10 + index + 1}
                         </div>
                       </div>
                     </div>
