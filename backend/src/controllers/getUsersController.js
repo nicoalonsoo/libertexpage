@@ -9,6 +9,10 @@ const getUsersController = async(req) => {
       const search = req.query.search;
       let users;
 
+      const order = req.query.order || "asc"; // Establece el orden predeterminado como ascendente si no se proporciona uno
+
+      const orderCriteria = [["createdAt", order]]; // Ordena por la columna "createdAt" en el orden especificado
+
       if (search) {
         users = await User.findAndCountAll({
           where: {
@@ -19,6 +23,7 @@ const getUsersController = async(req) => {
               Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('email')), 'LIKE', `%${search.toLowerCase()}%`),
             ],
           },
+          order: orderCriteria,
           limit,
           offset: (page - 1) * limit,
         });
@@ -28,6 +33,7 @@ const getUsersController = async(req) => {
       } else {
         users = await User.findAndCountAll({
           where: { status: 'Activo' },
+          order: orderCriteria, 
           limit,
           offset: (page - 1) * limit,
         });

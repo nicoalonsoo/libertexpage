@@ -3,18 +3,18 @@ export const GET_USERS = "GET_USERS";
 export const GET_COUNTRIES = "GET_COUNTRIES";
 export const UPDATE_FILTERED_USERS = 'UPDATE_FILTERED_USERS';
 
-export const getUsers = (code, page, search) => {
-    return async function(dispatch) {
-      try {
-        const queryParams = `code=${code}&page=${page}${search ? `&search=${search}` : ''}`;
-        const backData = await axios.get(`/users?${queryParams}`);
-        const users = backData.data.users;
-        dispatch({ type: GET_USERS, payload: users });
-      } catch (error) {
-        console.log(error);
-      }
-    };
+export const getUsers = (code, order, page, search ) => {
+  return async function(dispatch) {
+    try {
+      const queryParams = `code=${code}&order=${order}&page=${page}${search ? `&search=${search}` : ''}`;
+      const backData = await axios.get(`/users?${queryParams}`);
+      const users = backData.data.users;
+      dispatch({ type: GET_USERS, payload: users });
+    } catch (error) {
+      console.log(error);
+    }
   };
+};
 
   export const updateFilteredUsers = (filteredUsers) => {
     return {
