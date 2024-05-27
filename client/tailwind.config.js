@@ -8,6 +8,7 @@ module.exports = withMT({
     extend: {
       fontFamily: {
         sans: ['sans-serif'],
+
       },
       fontSize: {
         '12px': '12px',

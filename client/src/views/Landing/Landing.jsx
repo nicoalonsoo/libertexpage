@@ -37,20 +37,20 @@ console.log(filterCountries);
     <div>
       <Header />
       <div className="text-center py-4 max-w-[1223px] mx-auto">
-        <h3 className="text-sm md:text-lg font-bold text-red-500 mb-2 mt-0 mx-4 md:my-0">
+        <h3 className="font-montserrat-600 text-sm lg:text-lg px-2 lg:px-64 font-bold text-red-500 mb-2 mt-0 md:my-0">
           🚨 SOLO PARA PERSONAS QUE SE ESTÁN INICIANDO EN EL TRADING O QUE YA SE
           INICIARON PERO NO TIENEN BUENOS RESULTADOS. 🚨
         </h3>
-        <h3 className="text-lg md:text-2xl font-bold mx-6 my-2 md:my-0 md:mx-0">
-       
+        <h3 className="italic text-sm md:text-xl px-2 my-2 md:my-0 md:mx-0">
+          Nuevo video de 5 minutos revela...
         </h3>
-        <h1 className="text-2xl md:text-5xl font-extrabold mb-2 mx-4 md:mx-0">
+        <h1 className="text-bnalance font-podium font-medium text-3xl lg:text-8xl text-gray-900 mb-2 px-2 lg:px-0 md:mx-0">
           COMO LOGRAR OBTENER UNA RENTABILIDAD DEL{" "}
-          <span className="underline">10%</span> AL{" "}
-          <span className="underline">30%</span> MENSUAL HACIENDO COPYTRADING DE
-          LA MANO DE UN EXPERTO
+          <span className="underline text-[#ffa323]">10%</span> AL{" "}
+          <span className="underline text-[#ffa323]">30%</span> MENSUAL HACIENDO COPYTRADING DE
+          LA MANO DE UN <span className="underline text-[#ffa323]">EXPERTO</span>
         </h1>
-        <h3 className="text-lg md:text-2xl mb-2 mx-6 my-2 md:my-0 md:mx-0">
+        <h3 className="text-sm lg:text-xl mb-2  my-2 md:my-0 md:mx-0 px-2 lg:px-32 italic">
           Copiando y pegando nuestra estrategia que nos viene generando en
           promedio un 29% mensual en los últimos dos años. Vas a poder ingresar
           100% GRATIS cumpliendo dos requisitos.

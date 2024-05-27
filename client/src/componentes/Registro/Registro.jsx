@@ -1,26 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import loading from "../../multimedia/load3.gif";
 import logo from "../../multimedia/log.jpg";
 import { eventLead } from "../../utils/pixelEvents/PixelEvents";
 import { useHistory } from "react-router-dom";
 import Select from "react-select";
-import './Registro.css'
+import "./Registro.css";
 const Registro = ({ actualizarEstado, countries }) => {
+  const formRef = useRef(null);
   const history = useHistory();
   const [registro, setRegistro] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    countryCode: null,
-    country: '',
+    FNAME: "",
+    EMAIL: "",
+    PHONE: "",
+    CountryCode: null,
+    Country: "",
   });
+
+  //https://script.google.com/macros/s/AKfycbxTs-CYjqMdR-g72nLBDDtKnmtbIAgDywqi8Fmbedl2Xmr43J2Lj_dakwzz4NKXvMc7gg/exec
 
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({
-    name: "completar con su nombre",
-    email: "completar email",
-    phone: "colocar su numero",
+    FNAME: "completar con su nombre",
+    EMAIL: "completar email",
+    PHONE: "colocar su numero",
     countryCode: "colocar Country Code",
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -44,61 +47,138 @@ const Registro = ({ actualizarEstado, countries }) => {
 
   const validate = (registro) => {
     let errors = {};
-    if (!registro.name) {
-      errors.name = "Llenar con su nombre";
+    if (!registro.FNAME) {
+      errors.FNAME = "Llenar con su nombre";
     }
-    if (!registro.email) {
-      errors.email = "Debes ingresar un email.";
+    if (!registro.EMAIL) {
+      errors.EMAIL = "Debes ingresar un email.";
     }
-    if (registro.email) {
+    if (registro.EMAIL) {
       const emailRegex =
         /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-      if (!emailRegex.test(registro.email)) {
-        errors.email = "El email ingresado no es válido";
+      if (!emailRegex.test(registro.EMAIL)) {
+        errors.EMAIL = "El email ingresado no es válido";
       }
     }
-    if (!registro.phone) {
-      errors.phone = "Debe ingresar su numero de celular.";
+    if (!registro.PHONE) {
+      errors.PHONE = "Debe ingresar su numero de celular.";
     }
     if (!registro.countryCode) {
-      errors.phone = "Debe ingresar el código de su pais.";
+      errors.PHONE = "Debe ingresar el código de su pais.";
     }
-    if (!registro.countryCode && !registro.phone) {
-      errors.phone =
+    if (!registro.countryCode && !registro.PHONE) {
+      errors.PHONE =
         "Debe ingresar el código de su pais y su numero de celular.";
     }
     setErrors(errors);
   };
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   validate(registro);
+  //   if (Object.keys(errors).length === 0) {
+  //     eventLead(registro.EMAIL, registro.FNAME);
+  //     setIsLoading(true);
+  //     axios
+  //       .post("/users", registro)
+  //       .then((res) => {
+  //         // alert(`usuario enviado con éxito`);
+  //         setRegistro({
+  //           FNAME: "",
+  //           EMAIL: "",
+  //           PHONE: "",
+  //         });
+  //         actualizarEstado(false);
+  //         history.push("/video");
+  //       })
+  //       .catch((err) => alert(err));
+  //   } else {
+  //     setFormSubmitted(true);
+  //   }
+  // };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     validate(registro);
     if (Object.keys(errors).length === 0) {
-      eventLead(registro.email, registro.name);
-      setIsLoading(true);
-      axios
-        .post("/users", registro)
-        .then((res) => {
-          // alert(`usuario enviado con éxito`);
-          setRegistro({
-            name: "",
-            email: "",
-            phone: "",
-          });
-          actualizarEstado(false);
-          history.push("/video");
-        })
-        .catch((err) => alert(err));
+      setRegistro({
+        FNAME: "",
+        EMAIL: "",
+        PHONE: "",
+      });
+      if (formRef.current) {
+        formRef.current.submit();
+      }
+      Submit(e);
     } else {
       setFormSubmitted(true);
     }
+  };
+
+  const Submit = (e) => {
+    const formDatab = new FormData();
+    for (const key in registro) {
+      formDatab.append(key, registro[key]);
+    }
+
+    fetch(
+      "https://script.google.com/macros/s/AKfycbxTs-CYjqMdR-g72nLBDDtKnmtbIAgDywqi8Fmbedl2Xmr43J2Lj_dakwzz4NKXvMc7gg/exec",
+      {
+        method: "POST",
+        body: formDatab,
+        mode: "no-cors",
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {})
+      .catch((error) => {
+        console.log(error);
+      });
+
+    const form = e.target.closest("form");
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: form.method,
+      body: formData,
+      mode: "no-cors",
+    })
+      .then(() => {
+        // Mostrar mensaje de éxito (puedes ajustar esto según tus necesidades)
+        // const successResponse = document.getElementById('mce-success-response');
+        // successResponse.style.display = 'block';
+        // successResponse.textContent = 'Subscription successful! Thank you.';
+        // setTimeout(() => {
+        //   window.location.href = 'https://your-redirect-url.com';
+        // }, 5000);
+      })
+      .catch(() => {
+        // Manejo de error (puedes ajustar esto según tus necesidades)
+        const errorResponse = document.getElementById("mce-error-response");
+        errorResponse.style.display = "block";
+        errorResponse.textContent = "Subscription failed. Please try again.";
+      });
+
+    setIsLoading(true);
+    setRegistro({
+      Name: "",
+      Email: "",
+      Phone: "",
+      // CountryCode: "",
+      Country: "",
+    });
+    actualizarEstado(false);
+    history.push("/video");
+    // actualizarEstado(true);
   };
 
   const handleClick = (click) => {
     actualizarEstado(click);
   };
 
-  const selectedCountry = countries.find((country) => country.code === registro.countryCode);
+  const selectedCountry = countries.find(
+    (country) => country.code === registro.countryCode
+  );
 
   return (
     <div className="max-w-[1100px] flex items-center justify-center">
@@ -134,30 +214,36 @@ const Registro = ({ actualizarEstado, countries }) => {
 
         <form className="max-w-[400px] sm:max-w-[700px] mx-auto">
           <div className="mb-2">
-            <label htmlFor="name" className="block mb-1 sm:mb-2 text-sm text-gray-600">
+            <label
+              htmlFor="name"
+              className="block mb-1 sm:mb-2 text-sm text-gray-600"
+            >
               Ingresá tu Primer Nombre y Apellido
             </label>
             <input
               type="text"
-              id="name"
-              name="name"
-              value={registro.name}
+              id="FNAME"
+              name="FNAME"
+              value={registro.FNAME}
               onChange={handleChange}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
               required
             />
-            {formSubmitted && errors.name && (
-              <span className="text-red-500">{errors.name}</span>
+            {formSubmitted && errors.FNAME && (
+              <span className="text-red-500">{errors.FNAME}</span>
             )}
           </div>
           <div>
-            <label htmlFor="phone" className="block mb-1 sm:mb-2 text-sm text-gray-600">
-            Ingresá tu Numero de telefono
+            <label
+              htmlFor="PHONE"
+              className="block mb-1 sm:mb-2 text-sm text-gray-600"
+            >
+              Ingresá tu Numero de telefono
             </label>
             <div className="flex">
               <Select
                 options={countries.map((country) => ({
-                  value: [country.code,country.name],
+                  value: [country.code, country.name],
                   label: (
                     <div className="cursor-pointer flex items-center">
                       <img
@@ -171,22 +257,30 @@ const Registro = ({ actualizarEstado, countries }) => {
                     </div>
                   ),
                 }))}
-                placeholder={<span className="sm:text-sm text-10px leading-1.25rem text-gray-600 ">Código de Area</span>}
-                value={selectedCountry ? {
-                  value: [registro.countryCode, registro.country],
-                  label: (
-                    <div className="flex items-center cursor-pointer">
-                      <img
-                        src={selectedCountry.flag}
-                        alt={selectedCountry.name}
-                        className="w-6 h-4"
-                      />
-                      <span>
-                        {`${selectedCountry.name} (${registro.countryCode})`}
-                      </span>
-                    </div>
-                  ),
-                } : registro.countryCode}
+                placeholder={
+                  <span className="sm:text-sm text-10px leading-1.25rem text-gray-600 ">
+                    Código de Area
+                  </span>
+                }
+                value={
+                  selectedCountry
+                    ? {
+                        value: [registro.countryCode, registro.country],
+                        label: (
+                          <div className="flex items-center cursor-pointer">
+                            <img
+                              src={selectedCountry.flag}
+                              alt={selectedCountry.name}
+                              className="w-6 h-4"
+                            />
+                            <span>
+                              {`${selectedCountry.name} (${registro.countryCode})`}
+                            </span>
+                          </div>
+                        ),
+                      }
+                    : registro.countryCode
+                }
                 onChange={(selectedOption) => {
                   setRegistro({
                     ...registro,
@@ -199,33 +293,36 @@ const Registro = ({ actualizarEstado, countries }) => {
               />
               <input
                 type="text"
-                id="phone"
-                name="phone"
-                value={registro.phone}
+                id="PHONE"
+                name="PHONE"
+                value={registro.PHONE}
                 onChange={handleChange}
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                 required
               />
             </div>
-            {formSubmitted && errors.phone && (
-              <span className="text-red-500">{errors.phone}</span>
+            {formSubmitted && errors.PHONE && (
+              <span className="text-red-500">{errors.PHONE}</span>
             )}
           </div>
           <div className="mb-2">
-            <label htmlFor="email" className="block mb-1 sm:mb-2 text-sm text-gray-600">
-            Ingresá tu Correo electrónico
+            <label
+              htmlFor="email"
+              className="block mb-1 sm:mb-2 text-sm text-gray-600"
+            >
+              Ingresá tu Correo electrónico
             </label>
             <input
               type="email"
-              id="email"
-              name="email"
-              value={registro.email}
+              id="EMAIL"
+              name="EMAIL"
+              value={registro.EMAIL}
               onChange={handleChange}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
               required
             />
-            {formSubmitted && errors.email && (
-              <span className="text-red-500">{errors.email}</span>
+            {formSubmitted && errors.EMAIL && (
+              <span className="text-red-500">{errors.EMAIL}</span>
             )}
           </div>
           <div className="flex items-center justify-center ">

@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+    font-family: 'Podium'; 
+    src: url('./static/fonts/WarsawGothic.otf') format('opentype');
+  }
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+
+.font-podium {
+    font-family: 'Podium', sans-serif;
+}
 
 .font-montserrat-200{
     font-family: "Montserrat", sans-serif;
