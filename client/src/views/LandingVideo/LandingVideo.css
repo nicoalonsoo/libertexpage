@@ -10,6 +10,7 @@
     overflow: hidden;
     display: inline-block;
     transition: all 0.35s;
+    margin-top: 20px;
   }
   
   .ov-btn-slide-left:hover {
@@ -39,6 +40,6 @@
   }
   @media screen and (max-width: 768px) {
     .ov-btn-slide-left {
-        font-size: 18px; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+        font-size: 28px; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
     }
 }

@@ -59,7 +59,7 @@ const LandingVideo = () => {
           rel="noopener noreferrer"
         >
           <button
-            className="ov-btn-slide-left max-w-[700px] text-white text-2xl py-2 px-2rounded-lg mb-4 mx-2 my-4 md:my-0"
+            className="ov-btn-slide-left max-w-[700px] text-white text-3xl py-2 px-2 rounded-lg mt-4 mb-4 mx-2 my-4 md:my-0"
             onClick={() => handleClick()}
           >
             REGÍSTRATE!
