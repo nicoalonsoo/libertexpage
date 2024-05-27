@@ -42,7 +42,7 @@ console.log(filterCountries);
           INICIARON PERO NO TIENEN BUENOS RESULTADOS. 🚨
         </h3>
         <h3 className="text-lg md:text-2xl font-bold mx-6 my-2 md:my-0 md:mx-0">
-          Nuevo video de 5 minutos revela...
+       
         </h3>
         <h1 className="text-2xl md:text-5xl font-extrabold mb-2 mx-4 md:mx-0">
           COMO LOGRAR OBTENER UNA RENTABILIDAD DEL{" "}
