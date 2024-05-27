@@ -23,17 +23,17 @@ const LandingVideo = () => {
         >
           {" "}
           COMO LOGRAR OBTENER UNA RENTABILIDAD DEL{" "}
-          <span className="underline text-[#ffa323]">10%</span> AL{" "}
-          <span className="underline text-[#ffa323]">30%</span> MENSUAL HACIENDO
+          <span className="underline text-[#ff6634]">10%</span> AL{" "}
+          <span className="underline text-[#ff6634]">30%</span> MENSUAL HACIENDO
           COPYTRADING DE LA MANO DE UN EXPERTO
         </h3>
-        <h1 className="text-[#ffa323] font-montserrat-600 text-3xl md:text-5xl font-bold">
+        <h1 className="text-[#ff6634] font-montserrat-600 text-3xl md:text-5xl font-bold">
           PASO 1: MIRA EL VIDEO
         </h1>
         <div className="mx-auto max-w-[700px] mb-4 mt-4">
           <DropboxVideo />
         </div>
-        <h1 className="text-[#ffa323] font-montserrat-600 text-3xl md:text-5xl font-bold mb-4">
+        <h1 className="text-[#ff6634] font-montserrat-600 text-3xl md:text-5xl font-bold mb-4">
           PASO 2: REGISTRATE EN NUESTRA ACADEMIA
         </h1>
         <div className="flex flex-col justify-start items-center border-[2px] border-red-500 mx-2 space-y-4 py-4">

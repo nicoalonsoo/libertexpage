@@ -1,13 +1,8 @@
 import React from 'react';
-
-// import { SocialIcon } from 'react-social-icons/component'
-// import 'react-social-icons/instagram'
-// import 'react-social-icons/linkedin'
-// import 'react-social-icons/facebook'
-import logo from '../../multimedia/log.jpg'
+import logo from '../../multimedia/logo.png';
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-8">
+    <footer className="bg-[#ff6634] text-white py-8">
       <div className="container mx-auto text-center">
         {/* Logo de la empresa */}
         <img
@@ -31,7 +26,7 @@ const Footer = () => {
         </div> */}
 
         {/* Texto de derechos reservados */}
-        <p className="text-sm">&copy; {new Date().getFullYear()} Libertex. Todos los derechos reservados.</p>
+        <p className="text-sm">&copy; {new Date().getFullYear()} Inverza. Todos los derechos reservados.</p>
       </div>
     </footer>
   );

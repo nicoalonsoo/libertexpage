@@ -83,7 +83,7 @@ const Landing = () => {
           Nuevo video de 5 minutos revela...
         </h3>
         <h1 className="uppercase text-bnalance font-podium font-medium text-3xl lg:text-8xl text-gray-900 mb-2 px-2 lg:px-0 md:mx-0">
-        Experto en trading algorítmico<span className="underline text-[#ffa323]"> revela</span>  el sistema que utiliza para&nbsp;<span className="underline text-[#ffa323]">vivir del trading</span> 
+        Experto en trading algorítmico<span className="underline text-[#ff6634]"> revela</span>  el sistema que utiliza para&nbsp;<span className="underline text-[#ff6634]">vivir del trading</span> 
         </h1>
         <h3 className="text-sm lg:text-xl mb-2  my-2 md:my-0 md:mx-0 px-2 lg:px-32 italic">
           Copiando y pegando nuestra estrategia que nos viene generando en

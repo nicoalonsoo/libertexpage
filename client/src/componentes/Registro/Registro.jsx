@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
 import loading from "../../multimedia/load3.gif";
-import logo from "../../multimedia/log.jpg";
+import logo from '../../multimedia/logo_blanco.png';
 import { eventLead } from "../../utils/pixelEvents/PixelEvents";
 import { useHistory } from "react-router-dom";
 import Select from "react-select";
@@ -372,7 +372,7 @@ const Registro = ({ actualizarEstado, countries }) => {
               <button
                 type="submit"
                 onClick={handleSubmit}
-                className="w-full font-montserrat-600 sm:w-32 bg-gradient-to-r from-[#ffa323] to-[#fa9406] text-white py-2 rounded-lg mx-auto block text-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#fa9406] hover:scale-110 duration-300 mb-2"
+                className="w-full font-montserrat-600 sm:w-32 bg-gradient-to-r from-[#ff6634] to-[#ff4000] text-white py-2 rounded-lg mx-auto block text-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#fa9406] hover:scale-110 duration-300 mb-2"
               >
                 Registro
               </button>
@@ -381,7 +381,7 @@ const Registro = ({ actualizarEstado, countries }) => {
         </form>
         <div className="text-center"></div>
         <p className="text-xs text-gray-600 text-center mt-8">
-          &copy; 2024 Libertex
+          &copy; 2024 Inverza
         </p>
       </div>
     </div>
