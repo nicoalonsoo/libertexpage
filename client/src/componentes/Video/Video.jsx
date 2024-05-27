@@ -12,7 +12,7 @@ function Video() {
   useEffect(() => {
     const muteTimeout = setTimeout(() => {
       playVideo();
-    }, 1500);
+    }, 2000);
 
     return () => clearTimeout(muteTimeout);
   }, []);

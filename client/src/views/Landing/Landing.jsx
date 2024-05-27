@@ -27,17 +27,55 @@ const Landing = () => {
   const actualizarEstadoPadre = (estado) => {
     setShowform(estado);
   };
-  const modifiedCountries = countries.filter(country => country.continent === 'South America' || country.continent === 'North America');
+  const modifiedCountries = countries.filter(
+    (country) =>
+      country.continent === "South America" ||
+      country.continent === "North America"
+  );
 
-  const filteredCountryNames = ['British Virgin Islands', 'Canada', 'Venezuela', 'Cayman Islands', 'Caribbean Netherlands', 'Saint Vincent and the Grenadines', 'United States Virgin Islands', 'United States', 'French Guiana', 'Turks and Caicos Islands', 'Brazil', 'Falkland Islands', 'Sint Maarten', 'Belize', 'Montserrat', 'Suriname', 'Greenland', 'Jamaica', 'Guyana', 'Saint Barthélemy', 'Saint Pierre and Miquelon', 'Martinique', 'Guadeloupe', 'Saint Kitts and Nevis', 'Saint Martin', 'Anguilla', 'Saint Lucia', 'Curaçao', 'Dominican Republic', 'Trinidad and Tobago', 'Antigua and Barbuda'];
+  const filteredCountryNames = [
+    "British Virgin Islands",
+    "Canada",
+    "Venezuela",
+    "Cayman Islands",
+    "Caribbean Netherlands",
+    "Saint Vincent and the Grenadines",
+    "United States Virgin Islands",
+    "United States",
+    "French Guiana",
+    "Turks and Caicos Islands",
+    "Brazil",
+    "Falkland Islands",
+    "Sint Maarten",
+    "Belize",
+    "Montserrat",
+    "Suriname",
+    "Greenland",
+    "Jamaica",
+    "Guyana",
+    "Saint Barthélemy",
+    "Saint Pierre and Miquelon",
+    "Martinique",
+    "Guadeloupe",
+    "Saint Kitts and Nevis",
+    "Saint Martin",
+    "Anguilla",
+    "Saint Lucia",
+    "Curaçao",
+    "Dominican Republic",
+    "Trinidad and Tobago",
+    "Antigua and Barbuda",
+  ];
 
-  const filterCountries = modifiedCountries.filter(country => !filteredCountryNames.includes(country.name));
-console.log(filterCountries);
+  const filterCountries = modifiedCountries.filter(
+    (country) => !filteredCountryNames.includes(country.name)
+  );
+  console.log(filterCountries);
   return (
     <div>
       <Header />
       <div className="text-center py-4 max-w-[1223px] mx-auto">
-        <h3 className="font-montserrat-600 text-sm lg:text-lg px-2 lg:px-64 font-bold text-red-500 mb-2 mt-0 md:my-0">
+        <h3 className="text-sm lg:text-lg px-2 lg:px-64 font-bold text-red-500 ">
           🚨 SOLO PARA PERSONAS QUE SE ESTÁN INICIANDO EN EL TRADING O QUE YA SE
           INICIARON PERO NO TIENEN BUENOS RESULTADOS. 🚨
         </h3>
@@ -47,8 +85,9 @@ console.log(filterCountries);
         <h1 className="text-bnalance font-podium font-medium text-3xl lg:text-8xl text-gray-900 mb-2 px-2 lg:px-0 md:mx-0">
           COMO LOGRAR OBTENER UNA RENTABILIDAD DEL{" "}
           <span className="underline text-[#ffa323]">10%</span> AL{" "}
-          <span className="underline text-[#ffa323]">30%</span> MENSUAL HACIENDO COPYTRADING DE
-          LA MANO DE UN <span className="underline text-[#ffa323]">EXPERTO</span>
+          <span className="underline text-[#ffa323]">30%</span> MENSUAL HACIENDO
+          COPYTRADING DE LA MANO DE UN{" "}
+          <span className="underline text-[#ffa323]">EXPERTO</span>
         </h1>
         <h3 className="text-sm lg:text-xl mb-2  my-2 md:my-0 md:mx-0 px-2 lg:px-32 italic">
           Copiando y pegando nuestra estrategia que nos viene generando en
@@ -68,7 +107,7 @@ console.log(filterCountries);
         <button
           className="ov-btn-slide-left max-w-[700px] text-white text-2xl py-4 px-6 rounded-lg mb-4 mx-2 my-2 md:my-2"
           onClick={() => handleClick(true)}
-          style={{marginBottom: '3rem'}}
+          style={{ marginBottom: "3rem" }}
         >
           QUIERO VER ESTE BREVE VIDEO
           <p className="text-12px sm:text-0.875rem leading-1.25rem">
@@ -76,14 +115,16 @@ console.log(filterCountries);
             INICIARON PERO NO TIENEN BUENOS RESULTADOS.)
           </p>
         </button>
-        <h3 className="text-sm md:text-lg font-bold text-red-500 mb-4 mx-2 my-4 md:my-0">
-          *Si no tienes mínimo $100 dólares para depositar en tu cuenta de
-          trading no te registres porque esto no va funcionar para ti.
-        </h3>
-        <h3 className="text-sm md:text-lg font-bold text-red-500 mb-4 mx-2 my-4 md:my-0">
-          *No somos una empresa multinivel, ni un fondo de inversión. Somos una
-          academia de trading partner oficial del broker Libertex.
-        </h3>
+        <div className="flex flex-col justify-start items-center border-[2px] border-red-500 mx-2 space-y-4 py-4">
+          <h3 className="text-sm md:text-lg font-bold text-red-500 mx-2 text-left">
+            *Si no tienes mínimo $100 dólares para depositar en tu cuenta de
+            trading no te registres porque esto no va funcionar para ti.
+          </h3>
+          <h3 className="text-sm md:text-lg font-bold text-red-500 mx-2 text-left">
+            *No somos una empresa multinivel, ni un fondo de inversión. Somos
+            una academia de trading partner oficial del broker Libertex.
+          </h3>
+        </div>
       </div>
       {showForm && (
         <>
@@ -93,7 +134,10 @@ console.log(filterCountries);
           ></div>
           <div className="fixed inset-0 flex items-center justify-center z-50">
             <div className="bg-white p-4 rounded-lg shadow-lg">
-              <Registro actualizarEstado={actualizarEstadoPadre} countries={filterCountries}/>
+              <Registro
+                actualizarEstado={actualizarEstadoPadre}
+                countries={filterCountries}
+              />
             </div>
           </div>
         </>
