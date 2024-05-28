@@ -6,6 +6,7 @@ import Header from "../../componentes/Header/Header";
 import Footer from "../../componentes/Footer/Footer";
 import { useSelector, useDispatch } from "react-redux";
 import { getCountries } from "../../redux/actions";
+import WhatsAppButton from "../../componentes/Whatsapp/WhatsappButton";
 const Landing = () => {
   const countries = useSelector((state) => state.countries);
   const dispatch = useDispatch();
@@ -145,6 +146,7 @@ const Landing = () => {
         </>
       )}
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };

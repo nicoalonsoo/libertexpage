@@ -4,6 +4,8 @@ import DropboxVideo from "../../componentes/Video/Video";
 import Header from "../../componentes/Header/Header";
 import Footer from "../../componentes/Footer/Footer";
 import { eventViewContent } from "../../utils/pixelEvents/PixelEvents";
+import WhatsAppButton from "../../componentes/Whatsapp/WhatsappButton";
+
 const LandingVideo = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -71,6 +73,7 @@ const LandingVideo = () => {
         </a>
       </div>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
