@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import gif from "../../multimedia/gif.gif";
+import videoUrl from "../../multimedia/videoloop.mp4";
 import "./Landing.css";
 import Registro from "../../componentes/Registro/Registro";
 import Header from "../../componentes/Header/Header";
@@ -83,7 +83,10 @@ const Landing = () => {
           Nuevo video de 5 minutos revela...
         </h3>
         <h1 className="uppercase text-bnalance font-podium font-medium text-3xl lg:text-8xl text-gray-900 mb-2 px-2 lg:px-0 md:mx-0">
-        Experto en trading algorítmico<span className="underline text-[#ff6634]"> revela</span>  el sistema que utiliza para&nbsp;<span className="underline text-[#ff6634]">vivir del trading</span> 
+          Experto en trading algorítmico
+          <span className="underline text-[#ff6634]"> revela</span> el sistema
+          que utiliza para&nbsp;
+          <span className="underline text-[#ff6634]">vivir del trading</span>
         </h1>
         <h3 className="text-sm lg:text-xl mb-2  my-2 md:my-0 md:mx-0 px-2 lg:px-32 italic">
           Copiando y pegando nuestra estrategia que nos viene generando en
@@ -91,10 +94,13 @@ const Landing = () => {
           100% GRATIS cumpliendo dos requisitos.
         </h3>
         <div className="mx-auto max-w-[700px] p-2 sm:p-4 mb-2 mt-2">
-          <img
-            src={gif}
-            alt="gif"
-            className="mr-2 sm:mr-0 transition-transform duration-300 ease-in-out transform scale-100 hover:scale-110 "
+          <video
+            src={videoUrl}
+            className="mr-2 sm:mr-0 transition-transform duration-300 ease-in-out transform scale-100 hover:scale-110"
+            autoPlay
+            muted
+            loop
+            playsInline
             onMouseEnter={handleImageHover}
             onMouseLeave={handleImageHover}
             onClick={() => handleClick(true)}
