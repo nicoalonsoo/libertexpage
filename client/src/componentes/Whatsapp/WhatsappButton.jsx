@@ -29,7 +29,7 @@ const WhatsAppButton = () => {
   return (
     <a href={`https://wa.me/${phoneNumbers[currentIndex]}`} target="_blank" rel="noopener noreferrer">
      <button
-            className="ov-btn-slide-left max-w-[700px] text-white text-3xl py-2 px-2 rounded-lg mt-4 mb-4 mx-2 my-4 md:my-0"
+            className="ov-lead-trigger max-w-[700px] text-white text-3xl py-2 px-2 rounded-lg mt-4 mb-4 mx-2 my-4 md:my-0"
         
           >
             REGÍSTRATE!
