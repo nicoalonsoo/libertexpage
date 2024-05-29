@@ -55,25 +55,10 @@ const LandingVideo = () => {
             academia de trading asociada al broker Libertex.
           </h3>
         </div>
-        <a
-          href="https://go.libertex-affiliates.com/visit/?bta=55770&nci=17906"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <button
-            className="ov-btn-slide-left max-w-[700px] text-white text-3xl py-2 px-2 rounded-lg mt-4 mb-4 mx-2 my-4 md:my-0"
-            onClick={() => handleClick()}
-          >
-            REGÍSTRATE!
-            <p className="text-0.875rem leading-1.25rem">
-              (sólo para personas que quieren iniciarse en el trading o que ya
-              se iniciaron pero no tienen buenos resultados).
-            </p>
-          </button>
-        </a>
+        <WhatsAppButton />
       </div>
       <Footer />
-      <WhatsAppButton />
+
     </div>
   );
 };

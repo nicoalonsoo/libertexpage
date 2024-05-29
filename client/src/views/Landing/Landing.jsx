@@ -6,7 +6,7 @@ import Header from "../../componentes/Header/Header";
 import Footer from "../../componentes/Footer/Footer";
 import { useSelector, useDispatch } from "react-redux";
 import { getCountries } from "../../redux/actions";
-import WhatsAppButton from "../../componentes/Whatsapp/WhatsappButton";
+
 const Landing = () => {
   const countries = useSelector((state) => state.countries);
   const dispatch = useDispatch();
@@ -118,14 +118,17 @@ const Landing = () => {
             INICIARON PERO NO TIENEN BUENOS RESULTADOS.)
           </p>
         </button>
-        <div className="flex flex-col justify-start items-center border-[2px] border-red-500 mx-2 space-y-4 py-4">
-          <h3 className="text-sm md:text-lg font-bold text-red-500 mx-2 text-left">
+        <div className="flex flex-col lg:flex-wrap justify-start items-center border-[2px] border-red-500 mx-2 space-y-4 px-2 py-4">
+          <h3 className="w-full text-sm md:text-lg font-bold text-red-500 mx-2 text-left">
             *Si no tienes mínimo $100 dólares para depositar en tu cuenta de
             trading no te registres porque esto no va funcionar para ti.
           </h3>
-          <h3 className="text-sm md:text-lg font-bold text-red-500 mx-2 text-left">
+          <h3 className="w-full text-sm md:text-lg font-bold text-red-500 mx-2 text-left">
             *No somos una empresa multinivel, ni un fondo de inversión. Somos
-            una academia de trading partner oficial del broker Libertex.
+            una academia de trading.
+          </h3>
+          <h3 className="w-full text-sm md:text-lg font-bold text-red-500 mx-2 text-left">
+            *Copiando y pegando nuestra estrategia que nos viene generando en promedio un 29% mensual en los últimos dos años. Vas a poder ingresar 100% GRATIS cumpliendo dos requisitos.
           </h3>
         </div>
       </div>
@@ -146,7 +149,7 @@ const Landing = () => {
         </>
       )}
       <Footer />
-      <WhatsAppButton />
+     
     </div>
   );
 };
