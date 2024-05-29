@@ -90,9 +90,7 @@ const Landing = () => {
           <span className="underline text-[#ff6634]">vivir del trading</span>
         </h1>
         <h3 className="text-sm lg:text-xl mb-2  my-2 md:my-0 md:mx-0 px-2 lg:px-32 italic">
-          Copiando y pegando nuestra estrategia que nos viene generando en
-          promedio un 29% mensual en los últimos dos años. Vas a poder ingresar
-          100% GRATIS cumpliendo dos requisitos.
+        Dentro de Inverza puedes copiar y pegar nuestra estrategia, que nos dio la posibilidad de vivir del trading en los últimos dos años. Vas a poder ingresar 100% gratis cumpliendo solo dos requisitos.
         </h3>
         <div className="mx-auto max-w-[700px] p-2 sm:p-4 mb-2 mt-2">
           <video
