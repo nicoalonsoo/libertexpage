@@ -5,6 +5,7 @@ import Header from "../../componentes/Header/Header";
 import Footer from "../../componentes/Footer/Footer";
 import { eventViewContent } from "../../utils/pixelEvents/PixelEvents";
 import WhatsAppButton from "../../componentes/Whatsapp/WhatsappButton";
+import { FaWhatsapp } from "react-icons/fa";
 
 const LandingVideo = () => {
   useEffect(() => {
@@ -47,13 +48,6 @@ const LandingVideo = () => {
             *Solamente regístrate si tienes más de $100 dólares para depositar
             en tu cuenta de trading
           </h3>
-          {/* <h3
-            className="text-sm md:text-lg font-bold text-red-500  mx-2 text-left"
-           
-          >
-            *No somos una empresa multinivel ni un fondo de inversión, somos una
-            academia de trading asociada al broker Libertex.
-          </h3> */}
         </div>
         <WhatsAppButton />
       </div>

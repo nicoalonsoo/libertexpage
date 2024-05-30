@@ -58,7 +58,7 @@ const Landing = () => {
           onClick={() => handleClick(true)}
           style={{ marginBottom: "3rem" }}
         >
-          QUIERO VER ESTE BREVE VIDEO
+          QUIERO VER ESTA BREVE MASTERCLASS
           <p className="text-12px sm:text-0.875rem leading-1.25rem">
             (SOLO PARA PERSONAS QUE SE ESTÁN INICIANDO EN EL TRADING O QUE YA SE
             INICIARON PERO NO TIENEN BUENOS RESULTADOS.)
