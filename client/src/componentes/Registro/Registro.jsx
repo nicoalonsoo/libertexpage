@@ -9,8 +9,9 @@ import country from "../../multimedia/country.svg";
 import email from "../../multimedia/email.svg";
 import person from "../../multimedia/person.svg";
 import phone from "../../multimedia/phone.svg";
+import countries from "./countries";
 import "./Registro.css";
-const Registro = ({ actualizarEstado, countries }) => {
+const Registro = ({ actualizarEstado }) => {
   const formRef = useRef(null);
   const history = useHistory();
   const [registro, setRegistro] = useState({
