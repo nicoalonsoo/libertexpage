@@ -85,7 +85,7 @@ const Landing = () => {
             <div className="bg-white p-4 rounded-lg shadow-lg">
               <Registro
                 actualizarEstado={actualizarEstadoPadre}
-                countries={filterCountries}
+      
               />
             </div>
           </div>
