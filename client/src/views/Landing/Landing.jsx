@@ -54,7 +54,7 @@ const Landing = () => {
           />
         </div>
         <button
-          className="ov-btn-slide-left max-w-[700px] text-white text-2xl py-4 px-6 rounded-lg mb-4 mx-2 my-2 md:my-2"
+          className="ov-btn-slide-left max-w-[700px] text-white text-xl lg:text-2xl py-4 px-6 rounded-lg mb-4 mx-2 my-2 md:my-2"
           onClick={() => handleClick(true)}
           style={{ marginBottom: "3rem" }}
         >
