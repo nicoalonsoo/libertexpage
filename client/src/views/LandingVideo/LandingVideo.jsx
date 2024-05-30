@@ -39,21 +39,21 @@ const LandingVideo = () => {
           PASO 2: REGISTRATE EN NUESTRA ACADEMIA
         </h1>
         <div className="flex flex-col justify-start items-center border-[2px] border-red-500 mx-2 space-y-4 py-4">
-          <h3 className="text-sm md:text-lg font-bold text-red-500  mx-2 text-left">
+          {/* <h3 className="text-sm md:text-lg font-bold text-red-500  mx-2 text-left">
             *Si ya tienes cuenta en Libertex puedes registrarte con el mismo
             nombre y número de teléfono pero distinto email.
-          </h3>
+          </h3> */}
           <h3 className="text-sm md:text-lg font-bold text-red-500 mx-2 text-left">
             *Solamente regístrate si tienes más de $100 dólares para depositar
             en tu cuenta de trading
           </h3>
-          <h3
+          {/* <h3
             className="text-sm md:text-lg font-bold text-red-500  mx-2 text-left"
            
           >
             *No somos una empresa multinivel ni un fondo de inversión, somos una
             academia de trading asociada al broker Libertex.
-          </h3>
+          </h3> */}
         </div>
         <WhatsAppButton />
       </div>
