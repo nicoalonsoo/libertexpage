@@ -125,9 +125,6 @@ const Landing = () => {
             *No somos una empresa multinivel, ni un fondo de inversión. Somos
             una academia de trading.
           </h3>
-          <h3 className="w-full text-sm md:text-lg font-bold text-red-500 mx-2 text-left">
-            *Copiando y pegando nuestra estrategia que nos viene generando en promedio un 29% mensual en los últimos dos años. Vas a poder ingresar 100% GRATIS cumpliendo dos requisitos.
-          </h3>
         </div>
       </div>
       {showForm && (
