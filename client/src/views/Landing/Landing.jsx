@@ -4,17 +4,9 @@ import "./Landing.css";
 import Registro from "../../componentes/Registro/Registro";
 import Header from "../../componentes/Header/Header";
 import Footer from "../../componentes/Footer/Footer";
-import { useSelector, useDispatch } from "react-redux";
-import { getCountries } from "../../redux/actions";
 
 const Landing = () => {
-  const countries = useSelector((state) => state.countries);
-  const dispatch = useDispatch();
   const [showForm, setShowform] = useState(false);
-
-  useEffect(() => {
-    dispatch(getCountries());
-  }, [dispatch]);
 
   const handleImageHover = (e) => {
     e.target.classList.toggle("hovered-image");
@@ -28,50 +20,6 @@ const Landing = () => {
   const actualizarEstadoPadre = (estado) => {
     setShowform(estado);
   };
-  const modifiedCountries = countries.filter(
-    (country) =>
-      country.continent === "South America" ||
-      country.continent === "North America"
-  );
-
-  const filteredCountryNames = [
-    "British Virgin Islands",
-    "Canada",
-    "Venezuela",
-    "Cayman Islands",
-    "Caribbean Netherlands",
-    "Saint Vincent and the Grenadines",
-    "United States Virgin Islands",
-    "United States",
-    "French Guiana",
-    "Turks and Caicos Islands",
-    "Brazil",
-    "Falkland Islands",
-    "Sint Maarten",
-    "Belize",
-    "Montserrat",
-    "Suriname",
-    "Greenland",
-    "Jamaica",
-    "Guyana",
-    "Saint Barthélemy",
-    "Saint Pierre and Miquelon",
-    "Martinique",
-    "Guadeloupe",
-    "Saint Kitts and Nevis",
-    "Saint Martin",
-    "Anguilla",
-    "Saint Lucia",
-    "Curaçao",
-    "Dominican Republic",
-    "Trinidad and Tobago",
-    "Antigua and Barbuda",
-  ];
-
-  const filterCountries = modifiedCountries.filter(
-    (country) => !filteredCountryNames.includes(country.name)
-  );
-  console.log(filterCountries);
   return (
     <div>
       <Header />
