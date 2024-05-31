@@ -29,8 +29,8 @@ const WhatsAppButton = () => {
       rel="noopener noreferrer"
     >
       <button className="ov-lead-trigger ov-btn-slide-left  max-w-[700px] text-white text-3xl py-2 px-2 rounded-lg mt-4 mb-4 mx-2 my-4 md:my-0">
-        <p className="flex items-center justify-center">
-          <FaWhatsapp className="text-2xl mr-2" /> REGÍSTRATE!
+        <p className="flex items-center justify-center uppercase text-xl font-bold">
+          <FaWhatsapp className="text-2xl mr-2" /> envíanos un mensaje ahora!
         </p>
         <p className="text-0.875rem leading-1.25rem">
           (sólo para personas que quieren iniciarse en el trading o que ya se

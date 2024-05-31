@@ -237,6 +237,7 @@ const Registro = ({ actualizarEstado }) => {
                 backgroundPosition: "5px center",
                 backgroundRepeat: "no-repeat",
               }}
+              autocomplete="name"
             />
             {formSubmitted && errors.FNAME && (
               <span className="text-red-500">{errors.FNAME}</span>
@@ -333,6 +334,7 @@ const Registro = ({ actualizarEstado }) => {
                   backgroundPosition: "5px center",
                   backgroundRepeat: "no-repeat",
                 }}
+                autocomplete="tel"
               />
             </div>
             {formSubmitted && errors.PHONE && (
@@ -357,6 +359,7 @@ const Registro = ({ actualizarEstado }) => {
                 backgroundPosition: "5px center",
                 backgroundRepeat: "no-repeat",
               }}
+              autocomplete="email"
             />
             {formSubmitted && errors.EMAIL && (
               <span className="text-red-500">{errors.EMAIL}</span>

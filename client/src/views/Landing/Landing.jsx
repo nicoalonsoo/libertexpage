@@ -54,11 +54,11 @@ const Landing = () => {
           />
         </div>
         <button
-          className="ov-btn-slide-left max-w-[700px] text-white text-xl lg:text-2xl py-4 px-6 rounded-lg mb-4 mx-2 my-2 md:my-2"
+          className="ov-btn-slide-left max-w-[700px] text-white text-lg lg:text-2xl py-4 px-6 rounded-lg mb-4 mx-2 my-2 md:my-2"
           onClick={() => handleClick(true)}
           style={{ marginBottom: "3rem" }}
         >
-          QUIERO VER ESTA BREVE MASTERCLASS
+          <p className="w-full font-bold text-lg lg:text-2xl text-balance">QUIERO VER ESTA BREVE MASTERCLASS</p>
           <p className="text-12px sm:text-0.875rem leading-1.25rem">
             (SOLO PARA PERSONAS QUE SE ESTÁN INICIANDO EN EL TRADING O QUE YA SE
             INICIARON PERO NO TIENEN BUENOS RESULTADOS.)

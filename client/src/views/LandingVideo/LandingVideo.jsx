@@ -5,7 +5,7 @@ import Header from "../../componentes/Header/Header";
 import Footer from "../../componentes/Footer/Footer";
 import { eventViewContent } from "../../utils/pixelEvents/PixelEvents";
 import WhatsAppButton from "../../componentes/Whatsapp/WhatsappButton";
-import { FaWhatsapp } from "react-icons/fa";
+
 
 const LandingVideo = () => {
   useEffect(() => {
@@ -36,8 +36,8 @@ const LandingVideo = () => {
         <div className="mx-auto max-w-[700px] mb-4 mt-4">
           <DropboxVideo />
         </div>
-        <h1 className="text-[#ff6634] font-montserrat-600 text-3xl md:text-5xl font-bold mb-4">
-          PASO 2: REGISTRATE EN NUESTRA ACADEMIA
+        <h1 className="text-[#ff6634] font-montserrat-600 text-2xl md:text-5xl font-bold mb-4 uppercase text-balance">
+          PASO 2: solicita tu cupo gratuito a Inverza Academy
         </h1>
         <div className="flex flex-col justify-start items-center border-[2px] border-red-500 mx-2 space-y-4 py-4">
           {/* <h3 className="text-sm md:text-lg font-bold text-red-500  mx-2 text-left">
