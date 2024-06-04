@@ -6,7 +6,6 @@ import Footer from "../../componentes/Footer/Footer";
 import { eventViewContent } from "../../utils/pixelEvents/PixelEvents";
 import WhatsAppButton from "../../componentes/Whatsapp/WhatsappButton";
 
-
 const LandingVideo = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -21,14 +20,13 @@ const LandingVideo = () => {
       <Header />
       <div className="text-center py-8 max-w-[1200px] mx-auto">
         <h3
-          className=" text-bnalance font-podium font-medium text-2xl lg:text-5xl mx-2 my-4 md:my-0"
+          className="text-gray-900 text-balance font-podium font-medium text-2xl lg:text-5xl mx-2 my-4 md:my-0"
           style={{ marginBottom: "1rem" }}
         >
-          {" "}
-          COMO LOGRAR OBTENER UNA RENTABILIDAD DEL{" "}
-          <span className="underline text-[#ff6634]">10%</span> AL{" "}
-          <span className="underline text-[#ff6634]">30%</span> MENSUAL HACIENDO
-          COPYTRADING DE LA MANO DE UN EXPERTO
+          Experto en trading algorítmico
+          <span className="underline text-[#ff6634]"> revela</span> el sistema
+          que utiliza para&nbsp;
+          <span className="underline text-[#ff6634]">vivir del trading</span>
         </h3>
         <h1 className="text-[#ff6634] font-montserrat-600 text-3xl md:text-5xl font-bold">
           PASO 1: MIRA EL VIDEO
@@ -52,7 +50,6 @@ const LandingVideo = () => {
         <WhatsAppButton />
       </div>
       <Footer />
-
     </div>
   );
 };
