@@ -11,6 +11,7 @@ import person from "../../multimedia/person.svg";
 import phone from "../../multimedia/phone.svg";
 import countries from "./countries";
 import "./Registro.css";
+
 const Registro = ({ actualizarEstado }) => {
   const formRef = useRef(null);
   const history = useHistory();
@@ -22,15 +23,20 @@ const Registro = ({ actualizarEstado }) => {
     Country: "",
   });
 
-  //https://script.google.com/macros/s/AKfycbxTs-CYjqMdR-g72nLBDDtKnmtbIAgDywqi8Fmbedl2Xmr43J2Lj_dakwzz4NKXvMc7gg/exec
+  const phoneLengthsByCountryCode = {
+    '+54': 10,  // Argentina
+    '+591': 8,  // Bolivia
+    '+56': 9,   // Chile
+    '+57': 10,  // Colombia
+    '+593': 9,  // Ecuador
+    '+52': 10,  // Mexico
+    '+595': 9,  // Paraguay
+    '+51': 9,   // Peru
+    '+598': 9   // Uruguay
+  };
 
   const [isLoading, setIsLoading] = useState(false);
-  const [errors, setErrors] = useState({
-    FNAME: "completar con su nombre",
-    EMAIL: "completar email",
-    PHONE: "colocar su numero",
-    countryCode: "colocar Country Code",
-  });
+  const [errors, setErrors] = useState({});
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleChange = (e) => {
@@ -41,14 +47,6 @@ const Registro = ({ actualizarEstado }) => {
     }));
     validate({ ...registro, [name]: value });
   };
-  // const handleCountryChange = (e) => {
-  //   const code = e.target.value;
-  //   setRegistro({
-  //     ...registro,
-  //     countryCode: code,
-  //   });
-  //   validate({ ...registro, countryCode: code });
-  // };
 
   const validate = (registro) => {
     let errors = {};
@@ -66,53 +64,36 @@ const Registro = ({ actualizarEstado }) => {
       }
     }
     if (!registro.PHONE) {
-      errors.PHONE = "Debe ingresar su numero de celular.";
+      errors.PHONE = "Debe ingresar su número de celular.";
     }
     if (!registro.CountryCode) {
-      errors.PHONE = "Debe ingresar el código de su pais.";
+      errors.PHONE = "Debe seleccionar un país.";
     }
-    if (!registro.CountryCode && !registro.PHONE) {
-      errors.PHONE =
-        "Debe ingresar el código de su pais y su numero de celular.";
+    if (registro.PHONE && !registro.CountryCode) {
+      errors.CountryCode = "Debe seleccionar un país.";
+    }
+    if (registro.CountryCode && registro.PHONE) {
+      const countryPhoneLength = phoneLengthsByCountryCode[registro.CountryCode];
+      if (!countryPhoneLength) {
+        errors.PHONE = "Ingrese su numero telefónico otra vez porfavor.";
+      } else if (registro.PHONE.length !== countryPhoneLength) {
+        errors.PHONE = `El número de teléfono debe tener ${countryPhoneLength} dígitos.`;
+      }
     }
     setErrors(errors);
   };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   validate(registro);
-  //   if (Object.keys(errors).length === 0) {
-  //     eventLead(registro.EMAIL, registro.FNAME);
-  //     setIsLoading(true);
-  //     axios
-  //       .post("/users", registro)
-  //       .then((res) => {
-  //         // alert(`usuario enviado con éxito`);
-  //         setRegistro({
-  //           FNAME: "",
-  //           EMAIL: "",
-  //           PHONE: "",
-  //         });
-  //         actualizarEstado(false);
-  //         history.push("/video");
-  //       })
-  //       .catch((err) => alert(err));
-  //   } else {
-  //     setFormSubmitted(true);
-  //   }
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     validate(registro);
     if (Object.keys(errors).length === 0) {
-     
       setRegistro({
         FNAME: "",
         EMAIL: "",
         PHONE: "",
+        CountryCode: "",
+        Country: "",
       });
-   
 
       if (formRef.current) {
         formRef.current.submit();
@@ -153,12 +134,6 @@ const Registro = ({ actualizarEstado }) => {
     })
       .then(() => {
         // Mostrar mensaje de éxito (puedes ajustar esto según tus necesidades)
-        // const successResponse = document.getElementById('mce-success-response');
-        // successResponse.style.display = 'block';
-        // successResponse.textContent = 'Subscription successful! Thank you.';
-        // setTimeout(() => {
-        //   window.location.href = 'https://your-redirect-url.com';
-        // }, 5000);
       })
       .catch(() => {
         // Manejo de error (puedes ajustar esto según tus necesidades)
@@ -169,15 +144,14 @@ const Registro = ({ actualizarEstado }) => {
 
     setIsLoading(true);
     setRegistro({
-      Name: "",
-      Email: "",
-      Phone: "",
-      // CountryCode: "",
+      FNAME: "",
+      EMAIL: "",
+      PHONE: "",
+      CountryCode: "",
       Country: "",
     });
     actualizarEstado(false);
     history.push("/video");
-    // actualizarEstado(true);
   };
 
   const handleClick = (click) => {
@@ -187,7 +161,6 @@ const Registro = ({ actualizarEstado }) => {
   const selectedCountry = countries.find(
     (country) => country.code === registro.CountryCode
   );
-
   return (
     <div className="max-w-[1100px] flex items-center justify-center">
       <div className="max-w-[700px] p-4 bg-white rounded-lg shadow-lg overflow-auto max-h-[700px] relative">
