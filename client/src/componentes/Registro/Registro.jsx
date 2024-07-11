@@ -79,7 +79,7 @@ const Registro = ({ actualizarEstado }) => {
       } else if (registro.PHONE.length < countryPhoneLength.min ) {
         errors.PHONE = `El número de teléfono debe tener entre ${countryPhoneLength.min} y ${countryPhoneLength.max} dígitos.`;
       }
-      } else if ( registro.PHONE.length > countryPhoneLength.max) {
+     else if ( registro.PHONE.length > countryPhoneLength.max) {
         errors.PHONE = `Debe ingresar su número telefónico son el código país.`;
       }
     }
