@@ -24,15 +24,15 @@ const Registro = ({ actualizarEstado }) => {
   });
 
   const phoneLengthsByCountryCode = {
-    '+54': 10,  // Argentina
-    '+591': 8,  // Bolivia
-    '+56': 9,   // Chile
-    '+57': 10,  // Colombia
-    '+593': 9,  // Ecuador
-    '+52': 10,  // Mexico
-    '+595': 9,  // Paraguay
-    '+51': 9,   // Peru
-    '+598': 9   // Uruguay
+    '+54': { min: 9, max: 10 }, // Argentina
+    '+591': { min: 8, max: 8 },  // Bolivia
+    '+56': { min: 9, max: 9 },   // Chile
+    '+57': { min: 10, max: 10 },  // Colombia
+    '+593': { min: 9, max: 9 },  // Ecuador
+    '+52': { min: 10, max: 10 },  // Mexico
+    '+595': { min: 9, max: 9 },  // Paraguay
+    '+51': { min: 9, max: 9 },   // Peru
+    '+598': { min: 9, max: 9 }   // Uruguay
   };
 
   const [isLoading, setIsLoading] = useState(false);
@@ -76,10 +76,11 @@ const Registro = ({ actualizarEstado }) => {
       const countryPhoneLength = phoneLengthsByCountryCode[registro.CountryCode];
       if (!countryPhoneLength) {
         errors.PHONE = "Ingrese su número telefónico otra vez por favor.";
-      } else if (registro.PHONE.length < countryPhoneLength) {
-        errors.PHONE = `El número de teléfono debe tener ${countryPhoneLength} dígitos.`;
-      } else if (registro.PHONE.length > countryPhoneLength) {
-        errors.PHONE = "Ingrese su número telefónico sin el codigo país por favor.";
+      } else if (registro.PHONE.length < countryPhoneLength.min ) {
+        errors.PHONE = `El número de teléfono debe tener entre ${countryPhoneLength.min} y ${countryPhoneLength.max} dígitos.`;
+      }
+      } else if ( registro.PHONE.length > countryPhoneLength.max) {
+        errors.PHONE = `Debe ingresar su número telefónico son el código país.`;
       }
     }
     setErrors(errors);
