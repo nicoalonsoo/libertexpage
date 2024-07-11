@@ -67,7 +67,7 @@ const Registro = ({ actualizarEstado }) => {
       errors.PHONE = "Debe ingresar su número de celular.";
     }
     if (!registro.CountryCode) {
-      errors.PHONE = "Debe seleccionar un país.";
+      errors.CountryCode = "Debe seleccionar un país.";
     }
     if (registro.PHONE && !registro.CountryCode) {
       errors.CountryCode = "Debe seleccionar un país.";
@@ -75,13 +75,16 @@ const Registro = ({ actualizarEstado }) => {
     if (registro.CountryCode && registro.PHONE) {
       const countryPhoneLength = phoneLengthsByCountryCode[registro.CountryCode];
       if (!countryPhoneLength) {
-        errors.PHONE = "Ingrese su numero telefónico otra vez porfavor.";
+        errors.PHONE = "Ingrese su número telefónico otra vez por favor.";
       } else if (registro.PHONE.length !== countryPhoneLength) {
         errors.PHONE = `El número de teléfono debe tener ${countryPhoneLength} dígitos.`;
+      } else if (registro.PHONE.length > countryPhoneLength) {
+        errors.PHONE = "Ingrese su número telefónico sin el codigo país por favor.";
       }
     }
     setErrors(errors);
   };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
