@@ -76,7 +76,7 @@ const Registro = ({ actualizarEstado }) => {
       const countryPhoneLength = phoneLengthsByCountryCode[registro.CountryCode];
       if (!countryPhoneLength) {
         errors.PHONE = "Ingrese su número telefónico otra vez por favor.";
-      } else if (registro.PHONE.length !== countryPhoneLength) {
+      } else if (registro.PHONE.length < countryPhoneLength) {
         errors.PHONE = `El número de teléfono debe tener ${countryPhoneLength} dígitos.`;
       } else if (registro.PHONE.length > countryPhoneLength) {
         errors.PHONE = "Ingrese su número telefónico sin el codigo país por favor.";
