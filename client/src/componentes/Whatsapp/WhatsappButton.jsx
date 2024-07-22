@@ -24,7 +24,7 @@ const WhatsAppButton = () => {
 
   return (
     <a
-      href={`https://wa.me/${phoneNumbers[currentIndex]}`}
+      href={`https://wa.me/message/MJAVBCICSQCPC1`}
       target="_blank"
       rel="noopener noreferrer"
     >
