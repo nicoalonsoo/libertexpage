@@ -27,7 +27,7 @@ const Footer = () => {
 
         {/* Texto de derechos reservados */}
         <p className="text-sm">&copy; {new Date().getFullYear()} Inverza. Todos los derechos reservados.</p>
-        <a href='/politica-de-privacidad'  target="_blank" className="text-sm underline hover:text-black duration-300">Política de Privacidad</a>
+        <a href='/politica-de-privacidad'  target="_blank" className="text-sm underline hover:text-black duration-300">Políticas de Privacidad</a>
       </div>
     </footer>
   );
